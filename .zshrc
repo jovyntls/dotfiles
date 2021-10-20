@@ -134,7 +134,7 @@ alias sparksb="cdl ~/Desktop/cvwo/sparks/server && code . && bundle exec rails s
 alias sparksf="cdl ~/Desktop/cvwo/sparks/client && code . && yarn start"
 
 # aliases for development
-alias gdf="git difftool --tool=vimdiff -y"
+alias gdf="git difftool --tool=vimdiff -y HEAD"
 alias bers="bundle exec rails s"
 alias berc="bundle exec rails c"
 alias ber="bundle exec rails"
