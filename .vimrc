@@ -24,18 +24,19 @@ set hlsearch
 set incsearch    " incremental search - highlight search results as they match
 set backspace=2  " required by delimitMate_expand_cr
 
+" Editing settings
+
+let mapleader = " "
+
 " Keymaps
 
 "Make `Y` yank to end of line (like `C` and `D`)
 nnoremap Y y$
-
 "Quick :nohl
 nnoremap <C-H> :nohl<CR>
 inoremap <C-H> :nohl<CR>
 "Quick :qa
 nnoremap <C-Q> :qa<CR>
-"Undo an UltiSnips expansion
-inoremap <silent> <C-Q> :<Esc>uua
 
 "Move lines up/down with autoindent (normal mode)
 nnoremap <C-K> :<C-u>silent! move-2<CR>==
@@ -44,8 +45,19 @@ nnoremap <C-J> :<C-u>silent! move+<CR>==
 xnoremap <C-K> :<C-u>silent! '<,'>move-2<CR>gv=gv
 xnoremap <C-J> :<C-u>silent! '<,'>move'>+<CR>gv=gv
 
+"Navigate between split panes
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+"Resize panes
+nnoremap <silent> <leader>+ :vertical resize +5<CR>
+nnoremap <silent> <leader>- :vertical resize -5<CR>
+
 "For opening NERDTree
 nnoremap <C-B> :NERDTreeToggle<CR>
+"Undo an UltiSnips expansion
+inoremap <silent> <C-Q> :<Esc>uua
 
 "Format json files with gg=G
 autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
