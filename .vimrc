@@ -2,7 +2,7 @@ set nocompatible              " for YCM
 filetype plugin indent on    
 
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/seoul256.vim'
+Plug 'jovyntls/seoul256.vim'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
@@ -95,6 +95,8 @@ let g:lightline = { 'colorscheme': 'seoul256' }
 
 "Matching Parenthesis colour
 autocmd ColorScheme * highlight MatchParen ctermfg=White ctermbg=DarkBlue cterm=NONE
+"Visual mode highlight colour
+autocmd ColorScheme * highlight Visual ctermbg=DarkGrey ctermfg=NONE
 
 "Lightline modifications
 set noshowmode		"for lightline
