@@ -108,18 +108,14 @@ alias zshrc="vim ~/.zshrc"
 # navigation aliases
 alias dt="cd ~/Desktop"
 alias dl="cd ~/Downloads"
-alias wk="cd ~/Desktop/work"
+alias wk="cd ~/Desktop/work && ls"
 alias cdc="cd ~/Desktop/code-stuff && tree -L 1"
 alias cdcs="cd ~/Desktop/NUS/cheatsheets"
 alias ref="cd ~/Desktop/code-stuff/references && tree -L 1"
-alias codepy="code ~/PycharmProjects/learning_python/Practice_Projects"
-alias testjs="code -n ~/Desktop/code-stuff/code-archive/2020.1/javascript/js_notes/test.js"
-alias testpy="code ~/PycharmProjects/learning_python/rubbish/test.py"
 alias tree1="tree -L 1"
 alias tree2="tree -L 2 -I node_modules && echo '\n(node_modules ignored)'"
 alias tree3="tree -L 3 -I node_modules && echo '\n(node_modules ignored)'"
 
-alias cs="code ~/Desktop/NUS/cheatsheets"
 alias cleardl="sh ~/Desktop/code-stuff/useful/clear-downloads/clear-downloads.sh"
 
 alias chr="open -n -a 'Google Chrome' --args --profile-directory='Default'"
@@ -129,9 +125,6 @@ alias chrn="open -n -a 'Google Chrome' --args --profile-directory='Profile 5'"
 alias ffmplay="/Applications/ffmpeg-4.3-macos64-static/bin/ffplay ~/Desktop/ffmpeg-recording*.mp4"
 alias checkstyle="java -jar ~/Documents/cs2030s/bin/checkstyle.jar -c ~/Documents/cs2030s/bin/cs2030_checks.xml *.java"
 alias sunfire="ssh jovyntls@sunfire.comp.nus.edu.sg"
-alias cvwo="cdl ~/Desktop/cvwo"
-alias sparksb="cdl ~/Desktop/cvwo/sparks/server && code . && bundle exec rails s"
-alias sparksf="cdl ~/Desktop/cvwo/sparks/client && code . && yarn start"
 
 # aliases for development
 alias gdf="git difftool --tool=vimdiff -y HEAD"
@@ -150,11 +143,6 @@ function cl() {
 
 function cdl() {
     cd "$1" && ls .
-}
-
-function tno() {
-	# touch and open
-    touch "$1" && open "$1"
 }
 
 function ccc() {
