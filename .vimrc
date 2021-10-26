@@ -11,6 +11,8 @@ Plug 'preservim/nerdtree'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 syntax on
@@ -34,7 +36,8 @@ let mapleader = " "
 nnoremap Y y$
 "Quick :nohl
 nnoremap <C-H> :nohl<CR>
-inoremap <C-H> :nohl<CR>
+xnoremap <C-H> :nohl<CR>
+inoremap <C-H> <Esc>:nohl<CR>a
 "Quick :qa
 nnoremap <C-Q> :qa<CR>
 
@@ -51,8 +54,16 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 "Resize panes
+nnoremap <silent> <leader>h+ :resize +5<CR>
+nnoremap <silent> <leader>h- :resize -5<CR>
+"Resize panes
 nnoremap <silent> <leader>+ :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
+
+"Quick :nohl
+nnoremap <C-F> :Files<CR>
+xnoremap <C-F> :Files<CR>
+inoremap <C-F> <Esc>:Files<CR>
 
 "For opening NERDTree
 nnoremap <C-B> :NERDTreeToggle<CR>
@@ -65,6 +76,21 @@ autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
 map Q mzH=L'z :delmark z<CR>
 
 " Plugin settings
+
+"fzf.vim 
+" requires bat and the_silver_searcher
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $BAT_THEME = 'Nord'
+" change preview pane size
+let g:fzf_preview_window = ['right:60%']
+" change colour
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'fg+':     ['fg', 'rubyCurlyBlockDelimiter', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['fg', 'CursorLine', 'CursorLine', 'CursorColumn'],
+  \ 'prompt':  ['fg', 'Function'],
+  \ 'pointer': ['fg', 'CursorColumn'] }
+
 
 "Delimitmate
 let delimitMate_expand_cr = 1  " add newline after expanding brackets
