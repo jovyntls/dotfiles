@@ -79,7 +79,7 @@ map Q mzH=L'z :delmark z<CR>
 
 "fzf.vim 
 " requires bat and the_silver_searcher
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore="*.git*" --ignore="*.swp" -g ""'
 let $BAT_THEME = 'Nord'
 " change preview pane size
 let g:fzf_preview_window = ['right:60%']
