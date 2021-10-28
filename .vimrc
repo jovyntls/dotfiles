@@ -122,7 +122,7 @@ let g:lightline = { 'colorscheme': 'seoul256' }
 "Matching Parenthesis colour
 autocmd ColorScheme * highlight MatchParen ctermfg=White ctermbg=DarkBlue cterm=NONE
 "Visual mode highlight colour
-autocmd ColorScheme * highlight Visual ctermbg=DarkGrey ctermfg=NONE
+autocmd ColorScheme * highlight Visual ctermbg=239 ctermfg=NONE
 
 "Lightline modifications
 set noshowmode		"for lightline

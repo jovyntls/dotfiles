@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # ALIASES
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
+alias fvf='vim "$(fzf)"'
 
 # navigation aliases
 alias dt="cd ~/Desktop"
