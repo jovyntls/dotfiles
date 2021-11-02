@@ -34,6 +34,12 @@ let mapleader = " "
 
 "Make `Y` yank to end of line (like `C` and `D`)
 nnoremap Y y$
+"A more intuitive bol/eol navigation
+nnoremap H ^
+nnoremap L $
+"Swap v and V 
+nnoremap V v
+nnoremap v V
 "Quick :nohl
 nnoremap <C-H> :nohl<CR>
 xnoremap <C-H> :nohl<CR>
