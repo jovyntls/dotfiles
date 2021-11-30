@@ -36,7 +36,9 @@ let mapleader = " "
 nnoremap Y y$
 "A more intuitive bol/eol navigation
 nnoremap H ^
+xnoremap H ^
 nnoremap L $
+xnoremap L $
 "Swap v and V 
 nnoremap V v
 nnoremap v V
@@ -66,7 +68,7 @@ nnoremap <silent> <leader>h- :resize -5<CR>
 nnoremap <silent> <leader>+ :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
 
-"Quick :nohl
+"Quick fuzzy find
 nnoremap <C-F> :Files<CR>
 xnoremap <C-F> :Files<CR>
 inoremap <C-F> <Esc>:Files<CR>
@@ -79,7 +81,7 @@ inoremap <silent> <C-Q> :<Esc>uua
 "Format json files with gg=G
 autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
 "Indent lines on page; this command is originally Ex mode
-map Q mzH=L'z :delmark z<CR>
+noremap Q mzH=L'z :delmark z<CR>
 
 " Plugin settings
 
