@@ -15,7 +15,7 @@ export EDITOR=/usr/local/bin/vim
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="mh"
-precmd() { print "" }
+# precmd() { print "" }
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -128,12 +128,14 @@ alias checkstyle="java -jar ~/Documents/cs2030s/bin/checkstyle.jar -c ~/Document
 alias sunfire="ssh jovyntls@sunfire.comp.nus.edu.sg"
 
 # aliases for development
+alias gcamend="git commit --amend --no-edit"
 alias gdf="git difftool --tool=vimdiff -y HEAD"
 alias bers="bundle exec rails s"
 alias berc="bundle exec rails c"
 alias ber="bundle exec rails"
 alias yst="yarn start"
 alias ysv="yarn serve"
+alias nrd="npm run dev"
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
