@@ -23,8 +23,10 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set hlsearch
-set incsearch    " incremental search - highlight search results as they match
+set incsearch
 set backspace=2  " required by delimitMate_expand_cr
+set scrolloff=8
+set splitright
 
 " Editing settings
 
@@ -42,6 +44,10 @@ xnoremap L $
 "Swap v and V 
 nnoremap V v
 nnoremap v V
+"Reselect visual selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
 "Quick :nohl
 nnoremap <C-H> :nohl<CR>
 xnoremap <C-H> :nohl<CR>
