@@ -3,11 +3,11 @@ filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 Plug 'jovyntls/seoul256.vim'
-Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'junegunn/vim-peekaboo'
@@ -27,12 +27,17 @@ set incsearch
 set backspace=2  " required by delimitMate_expand_cr
 set scrolloff=8
 set splitright
+set nomodeline   " seldom used
 
+"----------------------------------------------------
 " Editing settings
+"----------------------------------------------------
 
 let mapleader = " "
 
+"----------------------------------------------------
 " Keymaps
+"----------------------------------------------------
 
 "Make `Y` yank to end of line (like `C` and `D`)
 nnoremap Y y$
@@ -89,7 +94,9 @@ autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
 "Indent lines on page; this command is originally Ex mode
 noremap Q mzH=L'z :delmark z<CR>
 
+"----------------------------------------------------
 " Plugin settings
+"----------------------------------------------------
 
 "fzf.vim 
 " requires bat and the_silver_searcher
@@ -122,7 +129,9 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
+"----------------------------------------------------
 " Aesthetic improvements
+"----------------------------------------------------
 
 "Mode Settings
 let &t_SI.="\<Esc>[6 q" "SI = INSERT mode
