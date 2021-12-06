@@ -1,8 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-# for Go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/jovyntan/.oh-my-zsh"
@@ -104,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # ALIASES
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
-alias fvf='vim "$(fzf)"'
+alias fvf='vim -c :Files'
 
 # navigation aliases
 alias dt="cd ~/Desktop"
@@ -171,13 +168,8 @@ function timestamp() {
 	date +"%d-%m-%Y_%H.%M.%S"
 }
 
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
-eval "$(rbenv init -)"
-
-# for pyenv 
+# for pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# for nodenv
-eval "$(nodenv init -)"
