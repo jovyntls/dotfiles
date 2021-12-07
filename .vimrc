@@ -29,6 +29,7 @@ set backspace=2  " required by delimitMate_expand_cr
 set scrolloff=8
 set splitright splitbelow
 set nomodeline   " seldom used
+set ttimeoutlen=100  " removes lag for lightline 
 
 "----------------------------------------------------
 " Editing settings
@@ -39,6 +40,9 @@ let mapleader = " "
 "----------------------------------------------------
 " Keymaps
 "----------------------------------------------------
+
+"Faster <Esc> to normal mode
+inoremap qq <Esc>
 
 "Make `Y` yank to end of line (like `C` and `D`)
 nnoremap Y y$
