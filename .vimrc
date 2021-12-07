@@ -13,6 +13,7 @@ Plug 'sirver/ultisnips'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 syntax on
@@ -26,7 +27,7 @@ set hlsearch
 set incsearch
 set backspace=2  " required by delimitMate_expand_cr
 set scrolloff=8
-set splitright
+set splitright splitbelow
 set nomodeline   " seldom used
 
 "----------------------------------------------------
@@ -72,6 +73,11 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+"Navigate between split panes
+nnoremap <leader>H :wincmd H<CR>
+nnoremap <leader>J :wincmd J<CR>
+nnoremap <leader>K :wincmd K<CR>
+nnoremap <leader>L :wincmd L<CR>
 "Resize panes
 nnoremap <silent> <leader>h+ :resize +5<CR>
 nnoremap <silent> <leader>h- :resize -5<CR>
