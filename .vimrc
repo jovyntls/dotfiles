@@ -94,8 +94,15 @@ nnoremap <C-F> :Files<CR>
 xnoremap <C-F> :Files<CR>
 inoremap <C-F> <Esc>:Files<CR>
 
-"For opening NERDTree
+"NERDTree
 nnoremap <C-B> :NERDTreeToggle<CR>
+let NERDTreeMapOpenSplit='x'
+let NERDTreeMapPreviewSplit='X'
+let NERDTreeMapOpenVSplit='v'
+let NERDTreeMapPreviewVSplit='V'
+let NERDTreeMapCloseDir='s'
+let NERDTreeMapCloseChildren='S'
+let NERDTreeMapPreview='O'
 "Undo an UltiSnips expansion
 inoremap <silent> <C-Q> :<Esc>uua
 
