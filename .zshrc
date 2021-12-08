@@ -49,27 +49,31 @@ alias ysv="yarn serve"
 alias nr="npm run"
 
 function cl() {
-	cal "$1" $(date +"%Y")
+  cal "$1" $(date +"%Y")
 }
 
 function cdl() {
-    cd "$1" && ls .
+  cd "$1" && ls .
+}
+
+function mkcd() {
+  mkdir "$1" && cd "$1"
 }
 
 function datacheck() {
-	cd ~/PycharmProjects/learning_python/aimz_projects
-	code -n .
-	code ./table_generators/googlesheet_template.py
-	cd
+  cd ~/PycharmProjects/learning_python/aimz_projects
+  code -n .
+  code ./table_generators/googlesheet_template.py
+  cd
 }
 
 function ffmrecord() {
-	/Applications/ffmpeg-4.3-macos64-static/bin/ffmpeg -f avfoundation -r 1 -probesize 20M -threads 1 -i "1:" -vcodec libx264 -b:v 128k -s hd720 ~/Desktop/ffmpeg-recording-$(timestamp).mp4
-	print "Recording stopped at "$(timestamp)
+  /Applications/ffmpeg-4.3-macos64-static/bin/ffmpeg -f avfoundation -r 1 -probesize 20M -threads 1 -i "1:" -vcodec libx264 -b:v 128k -s hd720 ~/Desktop/ffmpeg-recording-$(timestamp).mp4
+  print "Recording stopped at "$(timestamp)
 }
 
 function timestamp() {
-	date +"%d-%m-%Y_%H.%M.%S"
+  date +"%d-%m-%Y_%H.%M.%S"
 }
 
 # for pyenv
