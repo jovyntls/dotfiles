@@ -1,0 +1,80 @@
+{
+	"workbench.editorAssociations": {
+		"*.pdf": "latex-workshop-pdf-hook"
+	},
+	"latex-workshop.view.pdf.viewer": "tab",
+	// formatting
+	"editor.formatOnSave": true,
+	"prettier.useTabs": true,
+	"[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][vue][html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	// aesthetics
+	"editor.fontSize": 13,
+	"editor.fontFamily": "'Roboto Mono', Menlo, Monaco, 'Courier New', monospace",
+	"editor.glyphMargin": false, // removes the debugging marker column
+	"workbench.colorTheme": "Mariana Pro (Gray)",
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.colorCustomizations": {
+		"[Mariana Pro (Gray)]": {
+			"editor.background": "#2a2a2a",
+			"editor.foreground": "#cacaca"
+		}
+	},
+	"editor.tokenColorCustomizations": {
+		"[Mariana Pro (Gray)]": {
+			"strings": "#acc9a9",
+			"textMateRules": [
+				{
+					"scope": [
+						"variable.language",
+						"constant.language",
+						"storage.modifier.async.js",
+						"entity.name.tag"
+					],
+					"settings": {
+						"foreground": "#da7a7d"
+					}
+				},
+				{
+					"scope": ["punctuation.definition", "entity.name.function"],
+					"settings": {
+						"foreground": "#79acac"
+					}
+				},
+				{
+					"scope": ["meta.object-literal.key.js"],
+					"settings": {
+						"foreground": "#739cc5"
+					}
+				},
+				{
+					"scope": [
+						"keyword.control",
+						"entity.other.attribute-name",
+						"storage.type.js"
+					],
+					"settings": {
+						"foreground": "#c2a0c2"
+					}
+				},
+				{
+					"scope": ["variable.parameter"],
+					"settings": {
+						"foreground": "#ecbb7f"
+					}
+				},
+				{
+					"scope": [
+						"support.type.property-name.json",
+						"support.type.property-name",
+						"variable.other.object.js"
+					],
+					"settings": {
+						"foreground": "#d0d0d0"
+					}
+				}
+			]
+		}
+	}
+}
