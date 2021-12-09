@@ -46,6 +46,11 @@ inoremap qq <Esc>
 
 "Make `Y` yank to end of line (like `C` and `D`)
 nnoremap Y y$
+"Yank into clipboard
+nnoremap gy "*y
+vnoremap gy "*y
+nnoremap gY "*y$
+vnoremap gY "*y$
 "A more intuitive bol/eol navigation
 nnoremap H ^
 xnoremap H ^
