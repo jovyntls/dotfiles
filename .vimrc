@@ -108,6 +108,8 @@ let NERDTreeMapPreviewVSplit='V'
 let NERDTreeMapCloseDir='s'
 let NERDTreeMapCloseChildren='S'
 let NERDTreeMapPreview='O'
+let NERDTreeMapCloseDir='c'
+let NERDTreeMapCloseChildren='C'
 "Undo an UltiSnips expansion
 inoremap <silent> <C-Q> :<Esc>uua
 
