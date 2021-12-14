@@ -42,7 +42,11 @@ let mapleader = " "
 "----------------------------------------------------
 
 "Faster <Esc> to normal mode
-inoremap qq <Esc>
+inoremap fg <Esc>
+xnoremap fg <Esc>
+
+"Record with qq, play with Q
+nnoremap Q @q
 
 "Make `Y` yank to end of line (like `C` and `D`)
 nnoremap Y y$
@@ -115,8 +119,8 @@ inoremap <silent> <C-Q> :<Esc>uua
 
 "Format json files with gg=G
 autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
-"Indent lines on page; this command is originally Ex mode
-noremap Q mzH=L'z :delmark z<CR>
+"Indent lines on page
+nnoremap K mzH=L'z :delmark z<CR>
 
 "----------------------------------------------------
 " Plugin settings
