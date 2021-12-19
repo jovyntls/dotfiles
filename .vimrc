@@ -48,6 +48,17 @@ xnoremap fg <Esc>
 "Record with qq, play with Q
 nnoremap Q @q
 
+"A more intuitive bol/eol navigation
+nnoremap H ^
+xnoremap H ^
+nnoremap L $
+xnoremap L $
+"Go to start/end of page
+nnoremap ^ H
+xnoremap ^ H
+nnoremap $ L
+xnoremap $ L
+
 "Make `Y` yank to end of line (like `C` and `D`)
 nnoremap Y y$
 "Yank into clipboard
@@ -55,11 +66,6 @@ nnoremap gy "*y
 vnoremap gy "*y
 nnoremap gY "*y$
 vnoremap gY "*y$
-"A more intuitive bol/eol navigation
-nnoremap H ^
-xnoremap H ^
-nnoremap L $
-xnoremap L $
 "Swap v and V 
 nnoremap V v
 nnoremap v V
@@ -166,6 +172,10 @@ let &t_SI.="\<Esc>[6 q" "SI = INSERT mode
 let &t_SR.="\<Esc>[2 q" "SR = REPLACE mode
 let &t_EI.="\<Esc>[2 q" "EI = NORMAL mode (ELSE)
 
+"Lightline modifications
+set noshowmode		"for lightline
+set laststatus=2 	"for lightline
+
 "Colour scheme modifications
 let g:seoul256_background = 234
 let g:lightline = { 'colorscheme': 'seoul256' }
@@ -175,9 +185,10 @@ autocmd ColorScheme * highlight MatchParen ctermfg=White ctermbg=DarkBlue cterm=
 "Visual mode highlight colour
 autocmd ColorScheme * highlight Visual ctermbg=239 ctermfg=NONE
 
-"Lightline modifications
-set noshowmode		"for lightline
-set laststatus=2 	"for lightline
-
 "Colour scheme
 colorscheme seoul256
+
+"Make HTML tags the same colour
+highlight link htmlTag htmlTagName
+highlight link htmlEndTag htmlTagName
+
