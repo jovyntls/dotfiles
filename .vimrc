@@ -30,6 +30,9 @@ set scrolloff=8
 set splitright splitbelow
 set nomodeline   " seldom used
 set ttimeoutlen=100  " removes lag for lightline 
+set foldmethod=indent
+set nofoldenable
+set foldlevelstart=10
 
 "----------------------------------------------------
 " Editing settings
@@ -72,6 +75,9 @@ nnoremap v V
 "Reselect visual selection after indenting
 vnoremap < <gv
 vnoremap > >gv
+
+"Toggle fold with zf
+nnoremap zf za
 
 "Quick :nohl
 nnoremap <C-H> :nohl<CR>
@@ -191,4 +197,8 @@ colorscheme seoul256
 "Make HTML tags the same colour
 highlight link htmlTag htmlTagName
 highlight link htmlEndTag htmlTagName
+
+"Make popups background colour grey
+highlight Pmenu ctermbg=239 ctermfg=NONE guibg=gray
+highlight PmenuSel ctermbg=146 ctermfg=black guibg=gray
 
