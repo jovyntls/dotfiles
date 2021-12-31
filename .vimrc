@@ -8,6 +8,7 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
+Plug 'easymotion/vim-easymotion'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'junegunn/vim-peekaboo'
@@ -148,7 +149,7 @@ let g:fzf_preview_window = ['right:60%']
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'fg+':     ['fg', 'rubyCurlyBlockDelimiter', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['fg', 'CursorLine', 'CursorLine', 'CursorColumn'],
+  \ 'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
   \ 'prompt':  ['fg', 'Function'],
   \ 'pointer': ['fg', 'CursorColumn'] }
 
