@@ -40,7 +40,6 @@ alias sunfire="ssh jovyntls@sunfire.comp.nus.edu.sg"
 
 # aliases for development
 alias gcamend="git commit --amend --no-edit"
-alias gpsuom="git push --set-upstream origin master"
 alias gdf="git difftool --tool=vimdiff -y HEAD"
 alias bers="bundle exec rails s"
 alias berc="bundle exec rails c"
