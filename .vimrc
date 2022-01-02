@@ -2,18 +2,24 @@ set nocompatible              " for YCM
 filetype plugin indent on    
 
 call plug#begin('~/.vim/plugged')
+" aesthetics
 Plug 'jovyntls/seoul256.vim'
 Plug 'itchyny/lightline.vim'
+" utilities
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" editing
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
+" language-specific
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 call plug#end()
 
