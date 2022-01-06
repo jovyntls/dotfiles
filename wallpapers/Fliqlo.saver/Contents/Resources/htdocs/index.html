@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta name="content-language" content="en">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<title>Fliqlo</title>
+		<link rel="stylesheet" href="fliqlo.min.css?v=1.7.2">
+		<script src="vendor/modernizr.custom.21024.js"></script>
+		<script src="vendor/jquery-3.1.1.min.js"></script>
+		<script src="vendor/jquery.plugins.min.js?v=1.7.2"></script>
+		<script src="fliqlo.min.js?v=1.7.2"></script>
+	</head>
+	<body>
+		<div id="loader"></div>
+		<div id="nav">
+				<div id="nav-tfh" class="nav nav-checkbox" title="12/24-hour clock"><input id="tfh" type="checkbox"><label for="tfh"><span>24-hour clock</span></label></div>
+				<div id="nav-zoom" class="nav nav-range" title="Scale"><span class="step a minus" data-step="-1">－</span><input id="zoom" type="range" min="50" max="125" value="100" step="1"><span class="step a plus" data-step="1">＋</span></div>
+		</div>
+		<div id="wrap">
+			<div id="main">
+				<div id="main-content">
+					<div id="main-content-area">
+						<div id="hurs" class="flips">
+							<div class="flip hur top"></div>
+							<div class="flip hur bottom"></div>
+						</div>
+						<div id="mins" class="flips">
+							<div class="flip min top"></div>
+							<div class="flip min bottom"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</body>
+</html>
