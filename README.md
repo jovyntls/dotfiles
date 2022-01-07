@@ -9,7 +9,12 @@ credits:
 setup:
 * install homebrew
 * reinstall vim using brew to fix paths (or UltiSnips complains)
+  * if not fixed: use `brew link vim`
+* install oh-my-zsh and BirdsOfParadise.terminal theme
+  * edit theme in terminal: reduce redness of BG and white text
+  * Roboto Mono font
 * install vim-plug
 * for fzf vim - Bat, the_silver_searcher
 * for latex - MacTex, latexmk
+* misc: Alfred and Amethyst
 
