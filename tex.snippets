@@ -10,7 +10,7 @@ def env(name):
     return x != '0' and y != '0'
 
 def item_env():
-    return env("itemize") or env("enumerate")
+    return env("itemize") or env("enumerate") or env("invindent")
 
 endglobal
 
@@ -31,6 +31,10 @@ endsnippet
 
 snippet \def "Definition Text" wA
 \definition{$1}$0
+endsnippet
+
+snippet \ddef "Descriptive Definition" wA
+\definition[$2]{$1}$0
 endsnippet
 
 snippet \sec "Section" w
@@ -81,6 +85,12 @@ snippet item "Itemize" b
 \end{itemize}
 endsnippet
 
+snippet invi "Indentize" b
+\begin{invindent}
+	\item $0
+\end{invindent}
+endsnippet
+
 context "item_env()"
 snippet \\ "New item" bA 
 \item $0
@@ -96,7 +106,7 @@ else:
 endsnippet
 
 snippet idm "Inline Math with displaystyle" A
-\( {\displaystyle{$1}} \) $0
+\( {\displaystyle{ $1 }} \) $0
 endsnippet
 
 snippet ddm "Display Math" A
