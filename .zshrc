@@ -46,6 +46,7 @@ alias berc="bundle exec rails c"
 alias ber="bundle exec rails"
 alias yst="yarn start"
 alias ysv="yarn serve"
+alias yr="yarn run"
 alias nr="npm run"
 
 function cl() {
