@@ -36,6 +36,7 @@ set backspace=2  " required by delimitMate_expand_cr
 set scrolloff=8
 set splitright splitbelow
 set nomodeline   " seldom used
+set timeoutlen=300
 set ttimeoutlen=100  " removes lag for lightline 
 set foldmethod=indent
 set nofoldenable
@@ -54,10 +55,17 @@ let mapleader = " "
 "Faster <Esc> to normal mode
 inoremap fg <Esc>
 xnoremap fg <Esc>
+inoremap FG <Esc>
+xnoremap FG <Esc>
 
 "Record with qq, play with Q
 nnoremap Q @q
 
+"Remap j and k intuitively
+nnoremap j gj
+xnoremap j gj
+nnoremap k gk
+xnoremap k gk
 "A more intuitive bol/eol navigation
 nnoremap H ^
 xnoremap H ^
@@ -122,17 +130,15 @@ nnoremap <C-F> :Files<CR>
 xnoremap <C-F> :Files<CR>
 inoremap <C-F> <Esc>:Files<CR>
 
-"NERDTree
+"NERDTred
 nnoremap <C-B> :NERDTreeToggle<CR>
 let NERDTreeMapOpenSplit='x'
 let NERDTreeMapPreviewSplit='X'
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapPreviewVSplit='V'
-let NERDTreeMapCloseDir='s'
-let NERDTreeMapCloseChildren='S'
 let NERDTreeMapPreview='O'
-let NERDTreeMapCloseDir='c'
-let NERDTreeMapCloseChildren='C'
+let NERDTreeMapCloseDir='i'
+let NERDTreeMapCloseChildren='I'
 "Undo an UltiSnips expansion
 inoremap <silent> <C-Q> :<Esc>uua
 
