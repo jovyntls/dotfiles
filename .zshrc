@@ -22,7 +22,8 @@ alias fvf='vim -c :Files'
 # navigation aliases
 alias dt="cd ~/Desktop"
 alias dl="cd ~/Downloads"
-alias wk="cd ~/Desktop/work && ls"
+alias cdwk="cd ~/Desktop/work"
+alias wk="cdwk && ls"
 alias cdc="cd ~/Desktop/code-stuff && tree -L 1"
 alias cdcs="cd ~/Desktop/NUS/cheatsheets"
 alias ref="cd ~/Desktop/code-stuff/references && tree -L 1"
@@ -37,6 +38,11 @@ alias chrn="open -n -a 'Google Chrome' --args --profile-directory='Profile 1'"
 alias ffmplay="/Applications/ffmpeg-4.3-macos64-static/bin/ffplay ~/Desktop/ffmpeg-recording*.mp4"
 alias checkstyle="java -jar ~/Documents/cs2030s/bin/checkstyle.jar -c ~/Documents/cs2030s/bin/cs2030_checks.xml *.java"
 alias sunfire="ssh jovyntls@sunfire.comp.nus.edu.sg"
+# semesterly aliases
+alias 3281="cdwk && cd CS3281 && ls"
+alias 3230="cdwk && cd CS3230 && ls"
+alias 2131="cdwk && cd ST2131 && ls"
+alias 2214="cdwk && cd UHB2214\ EDM && ls"
 
 # aliases for development
 alias gcamend="git commit --amend --no-edit"
