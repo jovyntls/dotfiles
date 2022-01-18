@@ -11,6 +11,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 " editing
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -19,7 +20,6 @@ Plug 'easymotion/vim-easymotion'
 " language-specific
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
-Plug 'junegunn/vim-peekaboo'
 Plug 'pangloss/vim-javascript'
 call plug#end()
 
