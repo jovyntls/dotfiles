@@ -76,5 +76,6 @@
 				}
 			]
 		}
-	}
+	},
+	"editor.minimap.enabled": false
 }
