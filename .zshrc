@@ -46,6 +46,7 @@ alias 3230="cdwk && cd CS3230 && ls"
 alias 2131="cdwk && cd ST2131 && ls"
 alias edm="cdwk && cd UHB2214\ EDM && ls"
 alias uqf="cdwk && cd UQF2101I && ls"
+alias mbsd="markbind serve -d"
 
 # aliases for development
 alias gcamend="git commit --amend --no-edit"
