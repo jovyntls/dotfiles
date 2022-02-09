@@ -21,6 +21,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
 call plug#end()
 
 syntax on
@@ -157,6 +158,7 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore="*.git*" --ignore="*.swp" -g ""
 let $BAT_THEME = 'Nord'
 " change preview pane size
 let g:fzf_preview_window = ['right:60%']
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 " change colour
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -168,6 +170,7 @@ let g:fzf_colors =
 
 "Delimitmate
 let delimitMate_expand_cr = 1  " add newline after expanding brackets
+let delimitMate_expand_space = 1
 
 "VimTex
 let g:tex_flavor='latex'
