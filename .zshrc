@@ -27,9 +27,6 @@ alias wk="cdwk && ls"
 alias cdc="cd ~/Desktop/code-stuff && tree -L 1"
 alias cdcs="cd ~/Desktop/NUS/cheatsheets"
 alias ref="cd ~/Desktop/code-stuff/references && tree -L 1"
-alias tree1="tree -L 1"
-alias tree2="tree -L 2 -I node_modules && echo '\n(node_modules ignored)'"
-alias tree3="tree -L 3 -I node_modules && echo '\n(node_modules ignored)'"
 
 # NUS aliases
 alias ffmplay="/Applications/ffmpeg-4.3-macos64-static/bin/ffplay ~/Desktop/ffmpeg-recording*.mp4"
@@ -69,6 +66,16 @@ function mkcd() {
 
 function timestamp() {
   date +"%d-%m-%Y_%H.%M.%S"
+}
+
+function tree1() {
+  tree -L 1 $1
+}
+
+function tri() {
+  # params: number of levels, folder to search
+  tree -L $1 $2 -I node_modules
+  echo '\n(node_modules ignored)'
 }
 
 # for pyenv
