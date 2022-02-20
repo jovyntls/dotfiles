@@ -55,6 +55,7 @@ alias nr="npm run"
 alias yr="yarn run"
 alias yst="yarn start"
 alias ysv="yarn serve"
+alias atlasdb="PGPASSWORD=atlas_pw psql -h localhost -p 5433 -U atlas_user -d atlas_local"
 
 function cl() {
   cal "$1" $(date +"%Y")
@@ -72,7 +73,7 @@ function tree1() {
   tree -L 1 $1
 }
 
-function tri() {
+function tre() {
   # params: number of levels, folder to search
   tree -L $1 $2 -I node_modules
   echo '\n(node_modules ignored)'
@@ -87,4 +88,6 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(rbenv init - zsh)"
 
