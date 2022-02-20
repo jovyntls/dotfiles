@@ -9,15 +9,17 @@
 	"[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][vue][html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	// aesthetics
+	// editor settings
 	"editor.fontSize": 13,
 	"editor.fontFamily": "'Roboto Mono', Menlo, Monaco, 'Courier New', monospace",
 	"editor.glyphMargin": false, // removes the debugging marker column
+	"editor.minimap.enabled": false, // removes the right side map column
+	// aesthetics
 	"workbench.colorTheme": "Mariana Pro (Gray)",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.colorCustomizations": {
 		"[Mariana Pro (Gray)]": {
-			"editor.background": "#2a2a2a",
+			"editor.background": "#272727",
 			"editor.foreground": "#cacaca"
 		}
 	},
@@ -33,7 +35,7 @@
 						"entity.name.tag"
 					],
 					"settings": {
-						"foreground": "#da7a7d"
+						"foreground": "#d68f91"
 					}
 				},
 				{
@@ -77,5 +79,5 @@
 			]
 		}
 	},
-	"editor.minimap.enabled": false
+	"diffEditor.ignoreTrimWhitespace": false
 }
