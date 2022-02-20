@@ -171,6 +171,9 @@ let g:fzf_colors =
 "Delimitmate
 let delimitMate_expand_cr = 1  " add newline after expanding brackets
 let delimitMate_expand_space = 1
+au FileType tex let b:delimitMate_quotes = "\" ' $"
+au FileType html,vue,md let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+au FileType md let b:delimitMate_nesting_quotes = ['```']
 
 "VimTex
 let g:tex_flavor='latex'
