@@ -77,6 +77,9 @@ nnoremap ^ H
 xnoremap ^ H
 nnoremap $ L
 xnoremap $ L
+"Make K similar to J to join to above line
+nnoremap K kJ
+xnoremap gK kgJ
 
 "Make `Y` yank to end of line (like `C` and `D`)
 nnoremap Y y$
@@ -131,7 +134,7 @@ nnoremap <C-F> :Files<CR>
 xnoremap <C-F> :Files<CR>
 inoremap <C-F> <Esc>:Files<CR>
 
-"NERDTred
+"NERDTree
 nnoremap <C-B> :NERDTreeToggle<CR>
 let NERDTreeMapOpenSplit='x'
 let NERDTreeMapPreviewSplit='X'
@@ -146,7 +149,7 @@ inoremap <silent> <C-Q> :<Esc>uua
 "Format json files with gg=G
 autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
 "Indent lines on page
-nnoremap K mzH=L'z :delmark z<CR>
+nnoremap Z mzH=L'z :delmark z<CR>
 
 "----------------------------------------------------
 " Plugin settings
@@ -217,7 +220,7 @@ colorscheme seoul256
 highlight link htmlTag htmlTagName
 highlight link htmlEndTag htmlTagName
 
-"Make popups background colour grey
+"Make pop-ups background colour grey
 highlight Pmenu ctermbg=239 ctermfg=NONE guibg=gray
 highlight PmenuSel ctermbg=146 ctermfg=black guibg=gray
 
