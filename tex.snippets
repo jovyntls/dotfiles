@@ -123,12 +123,12 @@ endsnippet
 
 context "math()"
 snippet ^ "Superscript" i
-^{$1} $0
+^{$1}$0
 endsnippet
 
 context "math()"
 snippet _ "Subscript" i
-_{$1} $0
+_{$1}$0
 endsnippet
 
 context "math()"
@@ -143,6 +143,18 @@ endsnippet
 
 snippet \tx "Text" wA
 \text{$1}$0
+endsnippet
+
+snippet \lfloor "Math Floor"
+\lfloor $1 \rfloor $0
+endsnippet
+
+snippet \lceil "Math Ceiling"
+\lceil $1 \rceil $0
+endsnippet
+
+snippet \{ "Escaped curly brackets"
+\{$1\}$0
 endsnippet
 
 # utilities -----------------------------------------
