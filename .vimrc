@@ -133,6 +133,10 @@ nnoremap <silent> <leader>- :vertical resize -5<CR>
 nnoremap <C-F> :Files<CR>
 xnoremap <C-F> :Files<CR>
 inoremap <C-F> <Esc>:Files<CR>
+"Quick Ag fuzzy find
+nnoremap <C-A> :Ag<CR>
+xnoremap <C-A> :Ag<CR>
+inoremap <C-A> <Esc>:Ag<CR>
 
 "NERDTree
 nnoremap <C-B> :NERDTreeToggle<CR>
