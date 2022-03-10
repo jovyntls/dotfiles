@@ -18,6 +18,7 @@ source $ZSH/oh-my-zsh.sh
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias fvf='vim -c :Files'
+alias faf='vim -c :Ag'
 
 # navigation aliases
 alias dt="cd ~/Desktop"
@@ -43,6 +44,7 @@ alias 3230="cdwk && cd CS3230 && ls"
 alias 2131="cdwk && cd ST2131 && ls"
 alias edm="cdwk && cd UHB2214\ EDM && ls"
 alias uqf="cdwk && cd UQF2101I && ls"
+alias mb="cdwk && cd CS3281/markbind && ls"
 alias mbsd="markbind serve -d"
 alias atlasdb="PGPASSWORD=atlas_pw psql -h localhost -p 5433 -U atlas_user -d atlas_local"
 
