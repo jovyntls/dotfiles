@@ -17,6 +17,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
+Plug 'puremourning/vimspector'
 " language-specific
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
@@ -172,10 +173,10 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 " change colour
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
-  \ 'fg+':     ['fg', 'rubyCurlyBlockDelimiter', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
-  \ 'prompt':  ['fg', 'Function'],
-  \ 'pointer': ['fg', 'CursorColumn'] }
+\ 'fg+':     ['fg', 'rubyCurlyBlockDelimiter', 'CursorColumn', 'Normal'],
+\ 'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
+\ 'prompt':  ['fg', 'Function'],
+\ 'pointer': ['fg', 'CursorColumn'] }
 
 
 "Delimitmate
@@ -197,6 +198,20 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+"Vimspector
+nnoremap <Leader>dd :call vimspector#Launch()<CR>
+nnoremap <Leader>de :call vimspector#Reset()<CR>
+nnoremap <Leader>dc :call vimspector#Continue()<CR>
+
+nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <Leader>dat :call vimspector#ClearBreakpoints()<CR>
+nnoremap <Leader>dT <Plug>VimspectorBreakpoints
+
+nmap <Leader>dk <Plug>VimspectorRestart
+nmap <Leader>dh <Plug>VimspectorStepOut
+nmap <Leader>dl <Plug>VimspectorStepInto
+nmap <Leader>dj <Plug>VimspectorStepOver
 
 "----------------------------------------------------
 " Aesthetic improvements
