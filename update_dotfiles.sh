@@ -13,5 +13,5 @@ cp ~/Library/Application\ Support/Code/User/settings.json ./vscode/
 # obsidian vimrc
 cp ~/Obsidian/obsidian-workspace/.obsidian.vimrc .
 # daily scripts
-cp -r ~/do-not-move/scripts .
-crontab -l > crontabs
+cp -r ~/do-not-move/scripts/ ./scripts
+crontab -l > ./scripts/crontabs
