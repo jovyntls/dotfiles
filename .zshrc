@@ -19,6 +19,7 @@ alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 alias fvf='vim -c :Files'
 alias faf='vim -c :Ag'
+alias vi='vim'
 
 # navigation aliases
 alias dt="cd ~/Desktop"
