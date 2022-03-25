@@ -153,11 +153,11 @@ inoremap <silent> <C-Q> :<Esc>uua
 
 "Format json files with gg=G
 autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
-"Indent lines on page
+"Indent visible lines on page
 nnoremap Z mzH=L'z :delmark z<CR>
 
 "Wrap all lines to 72 characters for commit messages
-command Msg :set tw=72 | exe 'normal! gggqG gg"*yG'
+command Msg :set tw=72 | exe 'normal! gggqG gg"*yG :q!<CR>'
 
 "----------------------------------------------------
 " Plugin settings
