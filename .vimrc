@@ -43,6 +43,7 @@ set ttimeoutlen=100  " removes lag for lightline
 set foldmethod=indent
 set nofoldenable
 set foldlevelstart=10
+set complete=.,w,b,u,t " (default: .,w,b,u,t,i)  -  i causes vimtex to search in usr/.../texlive
 
 "----------------------------------------------------
 " Editing settings
