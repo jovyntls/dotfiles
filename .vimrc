@@ -54,6 +54,10 @@ let mapleader = " "
 " Keymaps
 "----------------------------------------------------
 
+"Enter command line mode faster
+nnoremap ; :
+xnoremap ; :
+
 "Faster <Esc> to normal mode
 inoremap fg <Esc>
 xnoremap fg <Esc>
