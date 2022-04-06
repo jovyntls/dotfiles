@@ -148,13 +148,19 @@ nnoremap <silent> <leader>h- :resize -5<CR>
 "Resize panes
 nnoremap <silent> <leader>+ :vertical resize +5<CR>
 nnoremap <silent> <leader>- :vertical resize -5<CR>
+"
+"Toggle spellcheck on/off
+nnoremap <leader>s :set invspell<CR>
+"Swap internal wordlist and spellfile
+nnoremap zg zG
+nnoremap zG zg
+nnoremap zw zW
+nnoremap zW zw
 
 "Format json files with gg=G
 autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
 "Indent visible lines on page
 nnoremap Z mzH=L'z :delmark z<CR>
-"Toggle spellcheck on/off
-nnoremap <leader>s :set invspell
 
 "Wrap all lines to 72 characters for commit messages
 command Msg :set tw=72 | exe 'normal! gggqG gg"*yG :q!<CR>'
