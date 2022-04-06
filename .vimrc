@@ -153,6 +153,8 @@ nnoremap <silent> <leader>- :vertical resize -5<CR>
 autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
 "Indent visible lines on page
 nnoremap Z mzH=L'z :delmark z<CR>
+"Toggle spellcheck on/off
+nnoremap <leader>s :set invspell
 
 "Wrap all lines to 72 characters for commit messages
 command Msg :set tw=72 | exe 'normal! gggqG gg"*yG :q!<CR>'
