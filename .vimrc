@@ -23,7 +23,7 @@ Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
-" Install Prettier then load plugin only for editing supported files
+" install Prettier and load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
@@ -48,6 +48,16 @@ set foldmethod=indent
 set nofoldenable
 set foldlevelstart=10
 set complete=.,w,b,u,t " (default: .,w,b,u,t,i)  -  i causes vimtex to search in usr/.../texlive
+
+"----------------------------------------------------
+" Misc configs that are important
+"----------------------------------------------------
+
+augroup markdownTexSpell
+    autocmd!
+    autocmd FileType markdown,tex,text setlocal spell
+    autocmd BufRead,BufNewFile *.mdx setlocal spell
+augroup END
 
 "----------------------------------------------------
 " Editing settings
