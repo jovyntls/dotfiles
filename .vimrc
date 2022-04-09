@@ -156,6 +156,9 @@ nnoremap zg zG
 nnoremap zG zg
 nnoremap zw zW
 nnoremap zW zw
+"Autocorrect the last bad word
+inoremap <C-L> <c-g>u<Esc>[s1z=`]a<c-g>u
+""<Esc>[sz=1<CR>
 
 "Format json files with gg=G
 autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
