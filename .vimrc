@@ -158,6 +158,8 @@ nnoremap zw zW
 nnoremap zW zw
 "Autocorrect the last bad word
 inoremap <C-L> <c-g>u<Esc>[s1z=`]a<c-g>u
+"Cycle through words if C-L doesn't give the right correction
+inoremap <C-S> <Esc>uea<C-X><C-S>
 ""<Esc>[sz=1<CR>
 
 "Format json files with gg=G
