@@ -124,6 +124,8 @@ xnoremap <C-H> :nohl<CR>
 inoremap <C-H> <Esc>:nohl<CR>a
 "Quick :qa
 nnoremap <C-Q> :qa<CR>
+"Quick exit terminal
+tnoremap <C-Q> <C-D>
 
 "Move lines up/down with autoindent (normal mode)
 nnoremap <C-K> :<C-u>silent! move-2<CR>==
