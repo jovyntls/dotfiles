@@ -220,8 +220,6 @@ let NERDTreeMapPreviewVSplit='V'
 let NERDTreeMapPreview='O'
 let NERDTreeMapCloseDir='i'
 let NERDTreeMapCloseChildren='I'
-"Undo an UltiSnips expansion
-inoremap <silent> <C-Q> :<Esc>uua
 
 "----------------------------------------------------------
 " Plugin settings
@@ -294,19 +292,10 @@ set laststatus=2 	"for lightline
 let g:seoul256_background = 234
 let g:lightline = { 'colorscheme': 'seoul256' }
 
-"Matching Parenthesis colour
-autocmd ColorScheme * highlight MatchParen ctermfg=White ctermbg=DarkBlue cterm=NONE
-"Visual mode highlight colour
-autocmd ColorScheme * highlight Visual ctermbg=239 ctermfg=NONE
-
 "Colour scheme
 colorscheme seoul256
 
 "Make HTML tags the same colour
 highlight link htmlTag htmlTagName
 highlight link htmlEndTag htmlTagName
-
-"Make pop-ups background colour grey
-highlight Pmenu ctermbg=239 ctermfg=NONE guibg=gray
-highlight PmenuSel ctermbg=146 ctermfg=black guibg=gray
 
