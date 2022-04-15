@@ -47,11 +47,11 @@ set ttimeoutlen=100  " removes lag for lightline
 set foldmethod=indent
 set nofoldenable
 set foldlevelstart=10
-set complete=.,w,b,u,t " (default: .,w,b,u,t,i)  -  i causes vimtex to search in usr/.../texlive
+set complete=.,w,b,u,t " remove i, which causes vimtex to search in usr/.../texlive
 
-"----------------------------------------------------
+"----------------------------------------------------------
 " Misc configs that are important
-"----------------------------------------------------
+"----------------------------------------------------------
 
 augroup markdownTexSpell
     autocmd!
@@ -59,34 +59,36 @@ augroup markdownTexSpell
     autocmd BufRead,BufNewFile *.mdx setlocal spell
 augroup END
 
-"----------------------------------------------------
+"----------------------------------------------------------
 " Editing settings
-"----------------------------------------------------
+"----------------------------------------------------------
 
 let mapleader = " "
 
-"----------------------------------------------------
+"----------------------------------------------------------
 " Keymaps
-"----------------------------------------------------
+"----------------------------------------------------------
 
+" MODES ---------------------------------------------
 "Enter command line mode faster
 nnoremap ; :
 xnoremap ; :
-
 "Faster <Esc> to normal mode
 inoremap fg <Esc>
 xnoremap fg <Esc>
 inoremap FG <Esc>
 xnoremap FG <Esc>
 
-"Record with qq, play with Q
-nnoremap Q @q
-
+" NAVIGATION ----------------------------------------
 "Remap j and k intuitively
 nnoremap j gj
 xnoremap j gj
 nnoremap k gk
 xnoremap k gk
+nnoremap gj j
+xnoremap gj j
+nnoremap gk k
+xnoremap gk k
 "A more intuitive bol/eol navigation
 nnoremap H ^
 xnoremap H ^
@@ -97,9 +99,61 @@ nnoremap ^ H
 xnoremap ^ H
 nnoremap $ L
 xnoremap $ L
+"Navigate between split panes
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+
+" BUFFER MANAGEMENT ---------------------------
+"Move split panes
+nnoremap <leader>H :wincmd H<CR>
+nnoremap <leader>J :wincmd J<CR>
+nnoremap <leader>K :wincmd K<CR>
+nnoremap <leader>L :wincmd L<CR>
+"Resize panes
+nnoremap <silent> <leader>h+ :resize +5<CR>
+nnoremap <silent> <leader>h- :resize -5<CR>
+"Resize panes
+nnoremap <silent> <leader>+ :vertical resize +5<CR>
+nnoremap <silent> <leader>- :vertical resize -5<CR>
+"Open a terminal
+nnoremap <C-T> :below term++rows=15<CR>
+inoremap <C-T> <Esc>:below term++rows=15<CR>
+" nnoremap <C-S-T> :vertical term++cols=50<CR>
+" inoremap <C-S-T> <Esc>:vertical term++cols=50<CR>
+
+" Open up nerdtree and a bottom terminal
+function In()
+  execute "below term++rows=15"
+  execute "NERDTreeToggle"
+  execute "wincmd l"
+endfunction
+command! In call In()
+
+
+" SELECTION -----------------------------------------
+"Swap v and V 
+nnoremap V v
+nnoremap v V
+"Reselect visual selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" EDITING -------------------------------------------
+"Record with qq, play with Q
+nnoremap Q @q
+
 "Make K similar to J to join to above line
 nnoremap K kJ
 xnoremap gK kgJ
+
+"Move lines up/down with autoindent (normal mode)
+nnoremap <C-K> :<C-u>silent! move-2<CR>==
+nnoremap <C-J> :<C-u>silent! move+<CR>==
+"Move lines up/down with autoindent (visual mode)
+xnoremap <C-K> :<C-u>silent! '<,'>move-2<CR>gv=gv
+xnoremap <C-J> :<C-u>silent! '<,'>move'>+<CR>gv=gv
 
 "Make `Y` yank to end of line (like `C` and `D`)
 nnoremap Y y$
@@ -108,12 +162,6 @@ nnoremap gy "*y
 vnoremap gy "*y
 nnoremap gY "*y$
 vnoremap gY "*y$
-"Swap v and V 
-nnoremap V v
-nnoremap v V
-"Reselect visual selection after indenting
-vnoremap < <gv
-vnoremap > >gv
 
 "Toggle fold with zf
 nnoremap zf za
@@ -127,30 +175,7 @@ nnoremap <C-Q> :qa<CR>
 "Quick exit terminal
 tnoremap <C-Q> <C-D>
 
-"Move lines up/down with autoindent (normal mode)
-nnoremap <C-K> :<C-u>silent! move-2<CR>==
-nnoremap <C-J> :<C-u>silent! move+<CR>==
-"Move lines up/down with autoindent (visual mode)
-xnoremap <C-K> :<C-u>silent! '<,'>move-2<CR>gv=gv
-xnoremap <C-J> :<C-u>silent! '<,'>move'>+<CR>gv=gv
-
-"Navigate between split panes
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-"Navigate between split panes
-nnoremap <leader>H :wincmd H<CR>
-nnoremap <leader>J :wincmd J<CR>
-nnoremap <leader>K :wincmd K<CR>
-nnoremap <leader>L :wincmd L<CR>
-"Resize panes
-nnoremap <silent> <leader>h+ :resize +5<CR>
-nnoremap <silent> <leader>h- :resize -5<CR>
-"Resize panes
-nnoremap <silent> <leader>+ :vertical resize +5<CR>
-nnoremap <silent> <leader>- :vertical resize -5<CR>
-"
+" SPELLCHECK ----------------------------------------
 "Toggle spellcheck on/off
 nnoremap <leader>s :set invspell<CR>
 "Swap internal wordlist and spellfile
@@ -164,22 +189,22 @@ inoremap <C-L> <c-g>u<Esc>[s1z=`]a<c-g>u
 inoremap <C-S> <Esc>uea<C-X><C-S>
 ""<Esc>[sz=1<CR>
 
+" FORMATTING ----------------------------------------
 "Format json files with gg=G
 autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
 "Indent visible lines on page
 nnoremap Z mzH=L'z :delmark z<CR>
-
 "Wrap all lines to 72 characters for commit messages
 command Msg :set tw=72 | exe 'normal! gggqG gg"*yG :q!<CR>'
 
-"----------------------------------------------------
+"----------------------------------------------------------
 " Plugin mappings
-"----------------------------------------------------
+"----------------------------------------------------------
 
 "Quick fuzzy find
-nnoremap <C-F> :Files<CR>
-xnoremap <C-F> :Files<CR>
-inoremap <C-F> <Esc>:Files<CR>
+nnoremap <C-P> :Files<CR>
+xnoremap <C-P> :Files<CR>
+inoremap <C-P> <Esc>:Files<CR>
 "Quick Ag fuzzy find
 nnoremap <C-A> :Ag<CR>
 xnoremap <C-A> :Ag<CR>
@@ -187,6 +212,7 @@ inoremap <C-A> <Esc>:Ag<CR>
 
 "NERDTree
 nnoremap <C-B> :NERDTreeToggle<CR>
+nnoremap <C-F> :NERDTreeFind<CR>
 let NERDTreeMapOpenSplit='x'
 let NERDTreeMapPreviewSplit='X'
 let NERDTreeMapOpenVSplit='v'
@@ -197,9 +223,9 @@ let NERDTreeMapCloseChildren='I'
 "Undo an UltiSnips expansion
 inoremap <silent> <C-Q> :<Esc>uua
 
-"----------------------------------------------------
+"----------------------------------------------------------
 " Plugin settings
-"----------------------------------------------------
+"----------------------------------------------------------
 
 "fzf.vim 
 " requires bat and the_silver_searcher
@@ -251,9 +277,9 @@ nmap <Leader>dh <Plug>VimspectorStepOut
 nmap <Leader>dl <Plug>VimspectorStepInto
 nmap <Leader>dj <Plug>VimspectorStepOver
 
-"----------------------------------------------------
+"----------------------------------------------------------
 " Aesthetic improvements
-"----------------------------------------------------
+"----------------------------------------------------------
 
 "Mode Settings
 let &t_SI.="\<Esc>[6 q" "SI = INSERT mode
