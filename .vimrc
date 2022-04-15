@@ -90,15 +90,11 @@ xnoremap gj j
 nnoremap gk k
 xnoremap gk k
 "A more intuitive bol/eol navigation
-nnoremap H ^
-xnoremap H ^
-nnoremap L $
-xnoremap L $
+noremap H ^
+noremap L $
 "Go to start/end of page
-nnoremap ^ H
-xnoremap ^ H
-nnoremap $ L
-xnoremap $ L
+noremap ^ H
+noremap $ L
 "Navigate between split panes
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
@@ -146,7 +142,7 @@ nnoremap Q @q
 
 "Make K similar to J to join to above line
 nnoremap K kJ
-xnoremap gK kgJ
+nnoremap gK kgJ
 
 "Move lines up/down with autoindent (normal mode)
 nnoremap <C-K> :<C-u>silent! move-2<CR>==
@@ -156,7 +152,7 @@ xnoremap <C-K> :<C-u>silent! '<,'>move-2<CR>gv=gv
 xnoremap <C-J> :<C-u>silent! '<,'>move'>+<CR>gv=gv
 
 "Make `Y` yank to end of line (like `C` and `D`)
-nnoremap Y y$
+noremap Y y$
 "Yank into clipboard
 nnoremap gy "*y
 vnoremap gy "*y
@@ -171,7 +167,7 @@ nnoremap <C-H> :nohl<CR>
 xnoremap <C-H> :nohl<CR>
 inoremap <C-H> <Esc>:nohl<CR>a
 "Quick :qa
-nnoremap <C-Q> :qa<CR>
+noremap <C-Q> :qa<CR>
 "Quick exit terminal
 tnoremap <C-Q> <C-D>
 
@@ -202,17 +198,14 @@ command Msg :set tw=72 | exe 'normal! gggqG gg"*yG :q!<CR>'
 "----------------------------------------------------------
 
 "Quick fuzzy find
-nnoremap <C-P> :Files<CR>
-xnoremap <C-P> :Files<CR>
-inoremap <C-P> <Esc>:Files<CR>
+noremap <C-F> :Files<CR>
+inoremap <C-F> <Esc>:Files<CR>
 "Quick Ag fuzzy find
-nnoremap <C-A> :Ag<CR>
-xnoremap <C-A> :Ag<CR>
+noremap <C-A> :Ag<CR>
 inoremap <C-A> <Esc>:Ag<CR>
 
 "NERDTree
-nnoremap <C-B> :NERDTreeToggle<CR>
-nnoremap <C-F> :NERDTreeFind<CR>
+noremap <C-B> :NERDTreeToggle<CR>
 let NERDTreeMapOpenSplit='x'
 let NERDTreeMapPreviewSplit='X'
 let NERDTreeMapOpenVSplit='v'
