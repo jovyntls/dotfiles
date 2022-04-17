@@ -17,7 +17,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
-Plug 'puremourning/vimspector'
 " language-specific
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
@@ -108,24 +107,14 @@ nnoremap <leader>J :wincmd J<CR>
 nnoremap <leader>K :wincmd K<CR>
 nnoremap <leader>L :wincmd L<CR>
 "Resize panes
-nnoremap <silent> <leader>h+ :resize +5<CR>
-nnoremap <silent> <leader>h- :resize -5<CR>
+nnoremap <silent> <S-Up> :resize +5<CR>
+nnoremap <silent> <S-Down> :resize -5<CR>
 "Resize panes
-nnoremap <silent> <leader>+ :vertical resize +5<CR>
-nnoremap <silent> <leader>- :vertical resize -5<CR>
+nnoremap <silent> <S-Right> :vertical resize +5<CR>
+nnoremap <silent> <S-Left> :vertical resize -5<CR>
 "Open a terminal
-nnoremap <C-T> :below term++rows=15<CR>
-inoremap <C-T> <Esc>:below term++rows=15<CR>
-" nnoremap <C-S-T> :vertical term++cols=50<CR>
-" inoremap <C-S-T> <Esc>:vertical term++cols=50<CR>
-
-" Open up nerdtree and a bottom terminal
-function In()
-  execute "below term++rows=15"
-  execute "NERDTreeToggle"
-  execute "wincmd l"
-endfunction
-command! In call In()
+nnoremap <leader>gt :below term++rows=15<CR>
+nnoremap <leader>t :vertical term++cols=50<CR>
 
 
 " SELECTION -----------------------------------------
@@ -168,8 +157,12 @@ xnoremap <C-H> :nohl<CR>
 inoremap <C-H> <Esc>:nohl<CR>a
 "Quick :qa
 noremap <C-Q> :qa<CR>
+
+" IMPROVED TERMINAL ---------------------------------
 "Quick exit terminal
 tnoremap <C-Q> <C-D>
+"Toggle normal mode on the terminal
+tnoremap <C-N> <C-\><C-N>
 
 " SPELLCHECK ----------------------------------------
 "Toggle spellcheck on/off
@@ -253,20 +246,6 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-
-"Vimspector
-nnoremap <Leader>dd :call vimspector#Launch()<CR>
-nnoremap <Leader>de :call vimspector#Reset()<CR>
-nnoremap <Leader>dc :call vimspector#Continue()<CR>
-
-nnoremap <Leader>dt :call vimspector#ToggleBreakpoint()<CR>
-nnoremap <Leader>dat :call vimspector#ClearBreakpoints()<CR>
-nnoremap <Leader>dT <Plug>VimspectorBreakpoints
-
-nmap <Leader>dk <Plug>VimspectorRestart
-nmap <Leader>dh <Plug>VimspectorStepOut
-nmap <Leader>dl <Plug>VimspectorStepInto
-nmap <Leader>dj <Plug>VimspectorStepOver
 
 "----------------------------------------------------------
 " Aesthetic improvements
