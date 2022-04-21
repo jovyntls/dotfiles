@@ -63,6 +63,7 @@ augroup END
 "----------------------------------------------------------
 
 let mapleader = " "
+nnoremap <leader>s :set inv
 
 "----------------------------------------------------------
 " Keymaps
@@ -99,6 +100,11 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+"Navigate between tabs
+nnoremap [t :tabprevious<CR>
+nnoremap ]t :tabnext<CR>
+nnoremap [T :tabfirst<CR>
+nnoremap ]T :tablast<CR>
 
 " BUFFER MANAGEMENT ---------------------------
 "Move split panes
@@ -166,7 +172,7 @@ tnoremap <C-N> <C-\><C-N>
 
 " SPELLCHECK ----------------------------------------
 "Toggle spellcheck on/off
-nnoremap <leader>s :set invspell<CR>
+nnoremap <leader>ss :set invspell<CR>
 "Swap internal wordlist and spellfile
 nnoremap zg zG
 nnoremap zG zg
