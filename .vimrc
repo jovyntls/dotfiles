@@ -260,6 +260,19 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
+"Lightline
+let g:lightline = {}
+let g:lightline.active = {
+    \ 'left': [ [ 'mode', 'paste' ],
+    \           [ 'readonly', 'filename', 'modified' ] ],
+    \ 'right': [ [ 'lineinfo' ],
+    \            [ 'percent' ],
+    \            [ 'filetype' ] ] }
+let g:lightline.inactive = { 
+      \ 'left': [ [ 'filename' ] ],
+      \ 'right': [],
+      \ }
+
 "----------------------------------------------------------
 " Aesthetic improvements
 "----------------------------------------------------------
@@ -275,7 +288,7 @@ set laststatus=2 	"for lightline
 
 "Colour scheme modifications
 let g:seoul256_background = 234
-let g:lightline = { 'colorscheme': 'seoul256' }
+let g:lightline.colorscheme = 'seoul256'
 
 "Colour scheme
 colorscheme seoul256
