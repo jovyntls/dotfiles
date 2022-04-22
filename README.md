@@ -21,4 +21,7 @@ setup for new device:
 * for fzf vim - Bat, the_silver_searcher
 * for latex - MacTex, latexmk
 * misc: Alfred and Amethyst
+* add keycodes to Terminal.app profile to support Shift-Up/Down:
+  * `⇧↑ \033[1;2A`
+  * `⇧↓ \033[1;2B`
 
