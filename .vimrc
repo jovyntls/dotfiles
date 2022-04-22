@@ -153,6 +153,13 @@ nnoremap gy "*y
 vnoremap gy "*y
 nnoremap gY "*y$
 vnoremap gY "*y$
+"Black hole registers
+noremap <leader>y "_y
+noremap <leader>Y "_y$
+noremap <leader>d "_d
+noremap <leader>D "_d$
+noremap <leader>c "_c
+noremap <leader>C "_c$
 
 "Toggle fold with zf
 nnoremap zf za
