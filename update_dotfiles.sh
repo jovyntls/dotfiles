@@ -3,6 +3,7 @@
 # vim 
 cp ~/.vimrc .
 cp ~/.vim/UltiSnips/tex.snippets .
+cp -r ~/.config/nvim .
 # zsh
 cp ~/.zshrc .
 cp ~/.oh-my-zsh/themes/mh.zsh-theme .
