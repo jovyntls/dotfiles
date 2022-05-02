@@ -1,5 +1,4 @@
-set nocompatible              " for YCM
-filetype plugin indent on    
+set nocompatible
 
 call plug#begin('~/.vim/plugged')
 " aesthetics
@@ -31,12 +30,9 @@ call plug#end()
 syntax on
 set number
 set expandtab
-set autoindent
 set smartindent
 set tabstop=2
 set shiftwidth=2
-set hlsearch
-set incsearch
 set backspace=2  " required by delimitMate_expand_cr
 set scrolloff=8
 set splitright splitbelow
@@ -146,8 +142,6 @@ nnoremap <C-J> :<C-u>silent! move+<CR>==
 xnoremap <C-K> :<C-u>silent! '<,'>move-2<CR>gv=gv
 xnoremap <C-J> :<C-u>silent! '<,'>move'>+<CR>gv=gv
 
-"Make `Y` yank to end of line (like `C` and `D`)
-noremap Y y$
 "Yank into clipboard
 nnoremap gy "*y
 vnoremap gy "*y
