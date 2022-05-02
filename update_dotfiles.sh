@@ -7,6 +7,8 @@ cp -r ~/.config/nvim .
 # zsh
 cp ~/.zshrc .
 cp ~/.oh-my-zsh/themes/mh.zsh-theme .
+# kitty
+cp -r ~/.config/kitty .
 # for specifying latex build files
 cp ~/.latexmkrc .
 # editor settings
