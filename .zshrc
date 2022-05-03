@@ -15,11 +15,11 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # ALIASES
-alias vimrc="vim ~/.vimrc"
-alias zshrc="vim ~/.zshrc"
-alias fvf='vim -c :Files'
-alias faf='vim -c :Ag'
-alias vi='vim'
+alias vimrc="nvim ~/.vimrc"
+alias zshrc="nvim ~/.zshrc"
+alias fvf='nvim -c :Files'
+alias faf='nvim -c :Ag'
+alias vi='nvim'
 
 # navigation aliases
 alias dt="cd ~/Desktop"
