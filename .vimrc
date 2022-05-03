@@ -29,24 +29,23 @@ Plug 'prettier/vim-prettier', {
 call plug#end()
 
 syntax on
-set number
-set expandtab
 set autoindent
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set hlsearch
-set incsearch
-set backspace=2  " required by delimitMate_expand_cr
+set expandtab
+set tabstop=2 shiftwidth=2
+set hlsearch incsearch
+set number
 set scrolloff=8
 set splitright splitbelow
-set nomodeline   " seldom used
 set timeoutlen=300
-set ttimeoutlen=100  " removes lag for lightline 
+set ttimeoutlen=100     " removes lag for lightline 
 set foldmethod=indent
 set nofoldenable
 set foldlevelstart=10
-set complete=.,w,b,u,t " remove i, which causes vimtex to search in usr/.../texlive
+set nomodeline          " seldom used
+set backspace=2         " required by delimitMate_expand_cr
+set complete=.,w,b,u,t  " remove i, which causes vimtex to search in usr/.../texlive
+set noshowmode		      " for lightline
+set laststatus=2		    " for lightline + vim
 
 "----------------------------------------------------------
 " Misc configs that are important
@@ -119,8 +118,8 @@ nnoremap <silent> <S-Down> :resize -5<CR>
 nnoremap <silent> <S-Right> :vertical resize +5<CR>
 nnoremap <silent> <S-Left> :vertical resize -5<CR>
 "Open a terminal
-nnoremap <leader>gt :below term++rows=15<CR>
-nnoremap <leader>t :vertical term++cols=50<CR>
+nnoremap <leader>ht :below term++rows=15<CR>
+nnoremap <leader>vt :vertical term++cols=50<CR>
 
 
 " SELECTION -----------------------------------------
@@ -281,10 +280,6 @@ let g:lightline.inactive = {
 let &t_SI.="\<Esc>[6 q" "SI = INSERT mode
 let &t_SR.="\<Esc>[2 q" "SR = REPLACE mode
 let &t_EI.="\<Esc>[2 q" "EI = NORMAL mode (ELSE)
-
-"Lightline modifications
-set noshowmode		"for lightline
-set laststatus=2 	"for lightline
 
 "Colour scheme modifications
 let g:seoul256_background = 234
