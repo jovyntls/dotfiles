@@ -164,9 +164,9 @@ noremap <leader>C "_c$
 nnoremap zf za
 
 "Quick :nohl
-nnoremap <C-H> :nohl<CR>
-xnoremap <C-H> :nohl<CR>
-inoremap <C-H> <Esc>:nohl<CR>a
+nnoremap <silent> <C-H> :nohl<CR>
+xnoremap <silent> <C-H> :nohl<CR>
+inoremap <silent> <C-H> <Esc>:nohl<CR>a
 "Quick :qa
 noremap <C-Q> :qa<CR>
 
