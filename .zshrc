@@ -40,11 +40,6 @@ function ffmrecord() {
   print "Recording stopped at "$(timestamp)
 }
 # semesterly aliases
-alias 3281="cdwk && cd CS3281 && ls"
-alias 3230="cdwk && cd CS3230 && ls"
-alias 2131="cdwk && cd ST2131 && ls"
-alias edm="cdwk && cd UHB2214\ EDM && ls"
-alias uqf="cdwk && cd UQF2101I && ls"
 alias mb="cdwk && cd CS3281/markbind && ls"
 alias mbsd="markbind serve -d"
 alias atlasdb="PGPASSWORD=atlas_pw psql -h localhost -p 5433 -U atlas_user -d atlas_local"
