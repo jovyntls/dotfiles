@@ -30,6 +30,7 @@ call plug#end()
 
 syntax on
 set autoindent
+set autoread
 set expandtab
 set tabstop=2 shiftwidth=2
 set hlsearch incsearch
@@ -175,6 +176,10 @@ noremap <C-Q> :qa<CR>
 tnoremap <C-Q> <C-D>
 "Toggle normal mode on the terminal
 tnoremap <C-N> <C-\><C-N>
+
+" IMPROVED COMMANDLINE ------------------------------
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
 
 " SPELLCHECK ----------------------------------------
 "Toggle spellcheck on/off
