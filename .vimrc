@@ -42,6 +42,7 @@ set ttimeoutlen=100     " removes lag for lightline
 set foldmethod=indent
 set nofoldenable
 set foldlevelstart=10
+set backup backupdir=~/.vim/backups
 set nomodeline          " seldom used
 set backspace=2         " required by delimitMate_expand_cr
 set complete=.,w,b,u,t  " remove i, which causes vimtex to search in usr/.../texlive
@@ -145,6 +146,10 @@ nnoremap <C-J> :<C-u>silent! move+<CR>==
 "Move lines up/down with autoindent (visual mode)
 xnoremap <C-K> :<C-u>silent! '<,'>move-2<CR>gv=gv
 xnoremap <C-J> :<C-u>silent! '<,'>move'>+<CR>gv=gv
+
+"Open blank line above/below
+nnoremap <CR> o<Esc>
+nnoremap <S-CR> O<Esc>
 
 "Make `Y` yank to end of line (like `C` and `D`)
 noremap Y y$
