@@ -233,7 +233,7 @@ let NERDTreeMapCloseChildren='I'
 " Plugin settings
 "----------------------------------------------------------
 
-"fzf.vim 
+" fzf.vim -------------------------------------------
 " requires bat and the_silver_searcher
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore="*.git*" --ignore="*.swp" -g ""'
 let $BAT_THEME = 'Nord'
@@ -249,27 +249,27 @@ let g:fzf_colors =
 \ 'pointer': ['fg', 'CursorColumn'] }
 
 
-"Delimitmate
+" delimitMate ---------------------------------------
 let delimitMate_expand_cr = 1  " add newline after expanding brackets
 let delimitMate_expand_space = 1
 au FileType tex let b:delimitMate_quotes = "\" ' $"
 au FileType html,vue,md let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType md let b:delimitMate_nesting_quotes = ['```']
 
-"VimTex
+" VimTex --------------------------------------------
 let g:tex_flavor='latex'
 let g:vimtex_view_method='skim'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
-"UltiSnips
+" UltiSnips -----------------------------------------
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
-"Lightline
+" lightline -----------------------------------------
 let g:lightline = {}
 let g:lightline.active = {
     \ 'left': [ [ 'mode', 'paste' ],
