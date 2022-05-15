@@ -1,5 +1,5 @@
-# mh theme
-# preview: https://cl.ly/1y2x0W0E3t2C0F29043z
+# modified mh theme
+# original: https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/mh.zsh-theme
 
 # features:
 # path is autoshortened to ~30 characters
