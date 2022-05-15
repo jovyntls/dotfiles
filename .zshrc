@@ -14,7 +14,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# ALIASES
+# ALIASES --------------------------------------------------------
+# general
 alias vimrc="nvim -O ~/.vimrc ~/.config/nvim/init.vim"
 alias zshrc="nvim ~/.zshrc"
 alias fvf='nvim -c :Files'
@@ -22,17 +23,14 @@ alias faf='nvim -c :Ag'
 alias vi='nvim'
 alias vimg='nvim +G +only'
 
-# navigation aliases
+# navigation
 alias dt="cd ~/Desktop"
 alias dl="cd ~/Downloads"
-alias cdwk="cd ~/Desktop/work"
-alias wk="cdwk && ls"
 alias cdc="cd ~/Desktop/code-stuff && tree -L 1"
 alias cdcs="cd ~/Desktop/NUS/cheatsheets"
 alias ref="cd ~/Desktop/code-stuff/references && tree -L 1"
 
-# NUS aliases
-alias ffmplay="/Applications/ffmpeg-4.3-macos64-static/bin/ffplay ~/Desktop/ffmpeg-recording*.mp4"
+# NUS 
 alias checkstyle="java -jar ~/Documents/cs2030s/bin/checkstyle.jar -c ~/Documents/cs2030s/bin/cs2030_checks.xml *.java"
 alias sunfire="ssh jovyntls@sunfire.comp.nus.edu.sg"
 # exams record function
@@ -40,12 +38,12 @@ function ffmrecord() {
   /Applications/ffmpeg-4.3-macos64-static/bin/ffmpeg -f avfoundation -r 1 -probesize 20M -threads 1 -i "1:" -vcodec libx264 -b:v 128k -s hd720 ~/Desktop/ffmpeg-recording-$(timestamp).mp4
   print "Recording stopped at "$(timestamp)
 }
+alias ffmplay="/Applications/ffmpeg-4.3-macos64-static/bin/ffplay ~/Desktop/ffmpeg-recording*.mp4"
 # semesterly aliases
-alias mb="cdwk && cd CS3281/markbind && ls"
 alias mbsd="markbind serve -d"
 alias atlasdb="PGPASSWORD=atlas_pw psql -h localhost -p 5433 -U atlas_user -d atlas_local"
 
-# aliases for development
+# for development
 alias gcamend="git commit --amend --no-edit"
 alias gdf="git difftool --tool=vimdiff -y HEAD"
 alias ber="bundle exec rails"
@@ -57,6 +55,7 @@ alias yst="yarn start"
 alias ysv="yarn serve"
 alias gpp="g++-11"
 
+# utils
 function cl() {
   cal "$1" $(date +"%Y")
 }
