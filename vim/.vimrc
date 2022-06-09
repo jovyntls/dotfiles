@@ -239,6 +239,7 @@ inoremap <C-A> <Esc>:Ag<CR>
 
 "NERDTree
 noremap <C-B> :NERDTreeToggle<CR>
+noremap <leader>b :NERDTreeFind<CR>
 let NERDTreeMapOpenSplit='x'
 let NERDTreeMapPreviewSplit='X'
 let NERDTreeMapOpenVSplit='v'
