@@ -8,6 +8,7 @@ Plug 'itchyny/lightline.vim'
 " utilities
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'  " allow :GBrowse to open github.com
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -122,6 +123,11 @@ nnoremap <silent> <S-Left> :vertical resize -5<CR>
 "Open a terminal
 nnoremap <leader>ht :below term++rows=15<CR>
 nnoremap <leader>vt :vertical term++cols=50<CR>
+"Move tabs
+nnoremap [m :tabm -1<CR>
+nnoremap ]m :tabm +1<CR>
+"Yank current (absolute) filepath into system clipboard
+nnoremap <leader>G :let @+ = expand("%")<CR>
 
 
 " SELECTION -----------------------------------------
@@ -176,6 +182,18 @@ inoremap <silent> <C-H> <Esc>:nohl<CR>a
 "Quick :qa
 noremap <C-Q> :qa<CR>
 
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " IMPROVED TERMINAL ---------------------------------
 "Quick exit terminal
 tnoremap <C-Q> <C-D>
@@ -228,6 +246,10 @@ let NERDTreeMapPreviewVSplit='V'
 let NERDTreeMapPreview='O'
 let NERDTreeMapCloseDir='i'
 let NERDTreeMapCloseChildren='I'
+
+"fugitive 
+nnoremap ,gg :GBrowse<CR>
+vnoremap ,gg :'<,'>GBrowse<CR>
 
 "----------------------------------------------------------
 " Plugin settings
