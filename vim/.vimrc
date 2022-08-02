@@ -103,10 +103,10 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 "Navigate between tabs
-nnoremap [t :tabprevious<CR>
-nnoremap ]t :tabnext<CR>
-nnoremap [T :tabfirst<CR>
-nnoremap ]T :tablast<CR>
+nnoremap <silent> [t :tabprevious<CR>
+nnoremap <silent> ]t :tabnext<CR>
+nnoremap <silent> [T :tabfirst<CR>
+nnoremap <silent> ]T :tablast<CR>
 
 " BUFFER MANAGEMENT ---------------------------
 "Move split panes

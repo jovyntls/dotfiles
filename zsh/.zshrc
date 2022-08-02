@@ -21,7 +21,7 @@ alias zshrc="nvim ~/.zshrc"
 alias fvf='nvim -c :Files'
 alias faf='nvim -c :Ag'
 alias vi='nvim'
-alias vimg='nvim +G +only'
+alias vig='nvim +G +only'
 
 # navigation
 alias dt="cd ~/Desktop"
