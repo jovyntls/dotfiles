@@ -290,7 +290,9 @@ let g:tex_conceal='abdmg'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+let $HOME = expand('~')
+let g:UltiSnipsSnippetsDir = $HOME."~/.vim/UltiSnips"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 " lightline -----------------------------------------
 let g:lightline = {}
