@@ -9,8 +9,10 @@ export EDITOR=/usr/local/bin/vim
 
 ZSH_THEME="mh"
 
+# nvm plugin allows the setting of NVM_LAZY which fixes slow startup time
+export NVM_LAZY=1
 # PLUGINS
-plugins=(git)
+plugins=(git nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,11 +84,6 @@ function tre() {
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
-# added by NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(rbenv init -)"
 
