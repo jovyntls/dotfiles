@@ -9,8 +9,10 @@ export EDITOR=/usr/local/bin/vim
 
 ZSH_THEME="mh"
 
-# nvm plugin allows the setting of NVM_LAZY which fixes slow startup time
-export NVM_LAZY=1
+# configs to reduce startup time
+export NVM_LAZY=1 # nvm plugin allows the setting of NVM_LAZY which fixes slow startup time
+DISABLE_AUTO_UPDATE="true"
+
 # PLUGINS
 plugins=(git nvm)
 
@@ -101,4 +103,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
