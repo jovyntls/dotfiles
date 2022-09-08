@@ -9,6 +9,8 @@ cp ~/.zshrc ./zsh
 cp ~/.oh-my-zsh/themes/mh.zsh-theme ./zsh
 # kitty
 cp -r ~/.config/kitty .
+# amethyst config file
+cp ~/.amethyst.yml ./misc
 # for specifying latex build files
 cp ~/.latexmkrc ./misc
 # editor settings
