@@ -103,3 +103,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# for running SML
+export PATH=/usr/local/smlnj/bin:"$PATH"
