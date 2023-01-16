@@ -9,12 +9,8 @@ export EDITOR=/usr/local/bin/vim
 
 ZSH_THEME="mh"
 
-# configs to reduce startup time
-export NVM_LAZY=1 # nvm plugin allows the setting of NVM_LAZY which fixes slow startup time
-DISABLE_AUTO_UPDATE="true"
-
 # PLUGINS
-plugins=(git nvm)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -46,6 +42,7 @@ alias ffmplay="/Applications/ffmpeg-4.3-macos64-static/bin/ffplay ~/Desktop/ffmp
 # semesterly aliases
 alias mbsd="markbind serve -d"
 alias atlasdb="PGPASSWORD=atlas_pw psql -h localhost -p 5433 -U atlas_user -d atlas_local"
+alias mb="cd ~/Desktop/work/markbind"
 
 # for development
 alias gcamend="git commit --amend --no-edit"
@@ -106,3 +103,8 @@ unset __conda_setup
 
 # for running SML
 export PATH=/usr/local/smlnj/bin:"$PATH"
+# added by NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
