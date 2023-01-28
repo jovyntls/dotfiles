@@ -62,6 +62,8 @@ augroup markdownTexSpell
     autocmd BufRead,BufNewFile *.mdx setlocal spell
 augroup END
 
+let g:coc_start_at_startup=0
+
 "----------------------------------------------------------
 " Editing settings
 "----------------------------------------------------------
@@ -299,39 +301,50 @@ let g:lightline.inactive = {
       \ }
 
 " coc.nvim ------------------------------------------
+let g:disable_coc_filetypes = ['tex']
 
-" Use tab for trigger completion with characters ahead and navigate
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+function! s:disable_coc_for_type()
+	if index(g:disable_coc_filetypes, &filetype) == -1
+    let g:coc_start_at_startup = 1
+    let b:coc_enabled = 1
+	endif
+endfunction
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+augroup CocGroup
+	autocmd!
+	autocmd BufNew,BufEnter * call s:disable_coc_for_type()
+augroup end
 
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" i mode: Use <c-space> to trigger completion)
-" v/x mode: Applying code actions to the selected code block
-if has('nvim')
-  xmap <c-space>  <Plug>(coc-codeaction-selected)
-  nmap <c-space>  <Plug>(coc-codeaction-selected)
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  xmap <c-@>  <Plug>(coc-codeaction-selected)
-  nmap <c-@>  <Plug>(coc-codeaction-selected)
-  inoremap <silent><expr> <c-@> coc#refresh()
+if exists("b:coc_enabled") && b:coc_enabled == 1
+  " Use tab for trigger completion with characters ahead and navigate
+  inoremap <silent><expr> <TAB>
+        \ coc#pum#visible() ? coc#pum#next(1) :
+        \ CheckBackspace() ? "\<Tab>" :
+        \ coc#refresh()
+  inoremap <expr><s-tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+  " i mode: Use <c-space> to trigger completion)
+  " v/x mode: Applying code actions to the selected code block
+  if has('nvim')
+    xmap <c-space>  <Plug>(coc-codeaction-selected)
+    nmap <c-space>  <Plug>(coc-codeaction-selected)
+    inoremap <silent><expr> <c-space> coc#refresh()
+  else
+    xmap <c-@>  <Plug>(coc-codeaction-selected)
+    nmap <c-@>  <Plug>(coc-codeaction-selected)
+    inoremap <silent><expr> <c-@> coc#refresh()
+  endif
+
+  " Use `[e` and `]e` to navigate diagnostics
+  nmap <silent> [e <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]e <Plug>(coc-diagnostic-next)
 endif
 
-" Use `[e` and `]e` to navigate diagnostics
-nmap <silent> [e <Plug>(coc-diagnostic-prev)
-nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
 "----------------------------------------------------------
 " Aesthetic improvements
