@@ -27,6 +27,8 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+" autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 syntax on
@@ -182,18 +184,6 @@ inoremap <silent> <C-H> <Esc>:nohl<CR>a
 "Quick :qa
 noremap <C-Q> :qa<CR>
 
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ CheckBackspace() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 " IMPROVED TERMINAL ---------------------------------
 "Quick exit terminal
 tnoremap <C-Q> <C-D>
@@ -307,6 +297,41 @@ let g:lightline.inactive = {
       \ 'left': [ [ 'filename' ] ],
       \ 'right': [],
       \ }
+
+" coc.nvim ------------------------------------------
+
+" Use tab for trigger completion with characters ahead and navigate
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" i mode: Use <c-space> to trigger completion)
+" v/x mode: Applying code actions to the selected code block
+if has('nvim')
+  xmap <c-space>  <Plug>(coc-codeaction-selected)
+  nmap <c-space>  <Plug>(coc-codeaction-selected)
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  xmap <c-@>  <Plug>(coc-codeaction-selected)
+  nmap <c-@>  <Plug>(coc-codeaction-selected)
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Use `[e` and `]e` to navigate diagnostics
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
 "----------------------------------------------------------
 " Aesthetic improvements
