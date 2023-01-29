@@ -20,7 +20,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion'
 " language-specific
 Plug 'lervag/vimtex'
-Plug 'sirver/ultisnips'
+Plug 'sirver/ultisnips', { 'for': [ 'tex' ] }
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 " install Prettier and load plugin only for editing supported files
@@ -320,30 +320,28 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-if exists("b:coc_enabled") && b:coc_enabled == 1
-  " Use tab for trigger completion with characters ahead and navigate
-  inoremap <silent><expr> <TAB>
-        \ coc#pum#visible() ? coc#pum#next(1) :
-        \ CheckBackspace() ? "\<Tab>" :
-        \ coc#refresh()
-  inoremap <expr><s-tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" Use tab for trigger completion with characters ahead and navigate
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><s-tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-  " i mode: Use <c-space> to trigger completion)
-  " v/x mode: Applying code actions to the selected code block
-  if has('nvim')
-    xmap <c-space>  <Plug>(coc-codeaction-selected)
-    nmap <c-space>  <Plug>(coc-codeaction-selected)
-    inoremap <silent><expr> <c-space> coc#refresh()
-  else
-    xmap <c-@>  <Plug>(coc-codeaction-selected)
-    nmap <c-@>  <Plug>(coc-codeaction-selected)
-    inoremap <silent><expr> <c-@> coc#refresh()
-  endif
-
-  " Use `[e` and `]e` to navigate diagnostics
-  nmap <silent> [e <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]e <Plug>(coc-diagnostic-next)
+" i mode: Use <c-space> to trigger completion)
+" v/x mode: Applying code actions to the selected code block
+if has('nvim')
+  xmap <c-space>  <Plug>(coc-codeaction-selected)
+  nmap <c-space>  <Plug>(coc-codeaction-selected)
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  xmap <c-@>  <Plug>(coc-codeaction-selected)
+  nmap <c-@>  <Plug>(coc-codeaction-selected)
+  inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
+" Use `[e` and `]e` to navigate diagnostics
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
 
 "----------------------------------------------------------
