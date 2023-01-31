@@ -1,15 +1,16 @@
-set nocompatible              " for YCM
-filetype plugin indent on    
+set nocompatible
+filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 " aesthetics
 Plug 'jovyntls/seoul256.vim'
 Plug 'itchyny/lightline.vim'
-" utilities
-Plug 'preservim/nerdtree'
+" git things
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'  " allow :GBrowse to open github.com
 Plug 'junegunn/gv.vim'
+" utilities
+Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -27,7 +28,7 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-" autocomplete
+" LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -133,7 +134,6 @@ nnoremap ]m :tabm +1<CR>
 "Yank current (absolute) filepath into system clipboard
 nnoremap <leader>G :let @+ = expand("%")<CR>
 
-
 " SELECTION -----------------------------------------
 "Swap v and V 
 nnoremap V v
@@ -208,7 +208,6 @@ nnoremap zW zw
 inoremap <C-L> <c-g>u<Esc>[s1z=`]a<c-g>u
 "Cycle through words if C-L doesn't give the right correction
 inoremap <C-S> <Esc>uea<C-X><C-S>
-""<Esc>[sz=1<CR>
 
 " FORMATTING ----------------------------------------
 "Format json files with gg=G
@@ -218,34 +217,9 @@ nnoremap Z mzH=L'z :delmark z<CR>
 "Wrap all lines to 72 characters for commit messages
 command Msg :set tw=72 | exe 'normal! gggqG gg"*yG :q!<CR>'
 
-"----------------------------------------------------------
-" Plugin mappings
-"----------------------------------------------------------
-
-"Quick fuzzy find
-noremap <C-F> :Files<CR>
-inoremap <C-F> <Esc>:Files<CR>
-"Quick Ag fuzzy find
-noremap <C-A> :Ag<CR>
-inoremap <C-A> <Esc>:Ag<CR>
-
-"NERDTree
-noremap <C-B> :NERDTreeToggle<CR>
-noremap <leader>b :NERDTreeFind<CR>
-let NERDTreeMapOpenSplit='x'
-let NERDTreeMapPreviewSplit='X'
-let NERDTreeMapOpenVSplit='v'
-let NERDTreeMapPreviewVSplit='V'
-let NERDTreeMapPreview='O'
-let NERDTreeMapCloseDir='i'
-let NERDTreeMapCloseChildren='I'
-
-"fugitive 
-nnoremap ,gg :GBrowse<CR>
-vnoremap ,gg :'<,'>GBrowse<CR>
 
 "----------------------------------------------------------
-" Plugin settings
+" Plugin mappings & configs
 "----------------------------------------------------------
 
 " fzf.vim -------------------------------------------
@@ -262,15 +236,39 @@ let g:fzf_colors =
 \ 'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
 \ 'prompt':  ['fg', 'Function'],
 \ 'pointer': ['fg', 'CursorColumn'] }
+"Quick fuzzy find
+noremap <C-F> :Files<CR>
+inoremap <C-F> <Esc>:Files<CR>
+"Quick Ag fuzzy find
+noremap <C-A> :Ag<CR>
+inoremap <C-A> <Esc>:Ag<CR>
 
+" NERDTree ------------------------------------------
+noremap <C-B> :NERDTreeToggle<CR>
+noremap <leader>b :NERDTreeFind<CR>
+let NERDTreeMapOpenSplit='x'
+let NERDTreeMapPreviewSplit='X'
+let NERDTreeMapOpenVSplit='v'
+let NERDTreeMapPreviewVSplit='V'
+let NERDTreeMapPreview='O'
+let NERDTreeMapCloseDir='i'
+let NERDTreeMapCloseChildren='I'
+
+" fugitive.vim --------------------------------------
+nnoremap ,gg :GBrowse<CR>
+vnoremap ,gg :'<,'>GBrowse<CR>
 
 " delimitMate ---------------------------------------
 let delimitMate_expand_cr = 1  " add newline after expanding brackets
 let delimitMate_expand_space = 1
-au FileType tex let b:delimitMate_smart_matchpairs='^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
-au FileType tex let b:delimitMate_quotes = "\" ' $"
-au FileType html,vue,md let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-au FileType md let b:delimitMate_nesting_quotes = ['```']
+augroup DelimitMateConfigs
+	autocmd!
+  au FileType tex let b:delimitMate_smart_matchpairs='^\%(\w\|\!\|[£]\|[^[:space:][:punct:]]\)'
+  au FileType tex let b:delimitMate_quotes = "\" ' $"
+  au FileType html,vue,md let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+  au FileType md let b:delimitMate_nesting_quotes = ['```']
+augroup end
+
 
 " VimTex --------------------------------------------
 let g:tex_flavor='latex'
@@ -325,7 +323,7 @@ inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><s-tab> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><s-tab> coc#pum#visible() ? coc#pum#prev(1) : "\<s-tab>"
 
 " i mode: Use <c-space> to trigger completion)
 " v/x mode: Applying code actions to the selected code block
