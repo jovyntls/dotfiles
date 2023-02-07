@@ -318,6 +318,14 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
 " Use tab for trigger completion with characters ahead and navigate
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
@@ -336,6 +344,9 @@ else
   nmap <c-@>  <Plug>(coc-codeaction-selected)
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
+" Use K to show documentation in preview window
+nnoremap <silent> ,gk :call ShowDocumentation()<CR>
 
 " Use `[e` and `]e` to navigate diagnostics
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
