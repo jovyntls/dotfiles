@@ -52,4 +52,10 @@ throw-screen-2:
   key: x
 focus-screen-ccw:
   mod: mod1
+  key: c
+increase-main:
+  mod: mod1
+  key: ,
+decrease-main:
+  mod: mod1
   key: .
