@@ -1,0 +1,122 @@
+[
+  {
+    "name": "zoom NUS SSO (2)",
+    "url": "https://us02web.zoom.us/web/sso/login?en=signin#/sso",
+    "initWait": 0,
+    "startTime": "",
+    "enable": true,
+    "startType": "auto",
+    "loadType": "window",
+    "hotkey": "Ctrl + Shift + A",
+    "batch": {
+      "refresh": false,
+      "repeat": 0,
+      "repeatInterval": 0
+    },
+    "actions": [
+      {
+        "name": "",
+        "initWait": 0,
+        "elementFinder": "//input[@id=\"domain\"]",
+        "value": "nus-sg",
+        "repeat": 0,
+        "repeatInterval": 0,
+        "addon": {
+          "elementFinder": "",
+          "value": "",
+          "condition": "",
+          "valueExtractor": "",
+          "recheck": 0,
+          "recheckInterval": 0,
+          "recheckOption": "stop"
+        }
+      },
+      {
+        "name": "",
+        "initWait": 0,
+        "elementFinder": "//span[contains(text(),\"Continue\")]",
+        "value": "MouseEvents::click",
+        "repeat": 0,
+        "repeatInterval": 0,
+        "addon": {
+          "elementFinder": "",
+          "value": "",
+          "condition": "",
+          "valueExtractor": "",
+          "recheck": 0,
+          "recheckInterval": 0,
+          "recheckOption": "stop"
+        },
+        "focus": true
+      }
+    ]
+  },
+  {
+    "name": "zoom NUS SSO (1)",
+    "url": "https://us02web.zoom.us/signin",
+    "initWait": 0,
+    "startTime": "",
+    "enable": true,
+    "startType": "auto",
+    "loadType": "window",
+    "hotkey": "Ctrl + Shift + A",
+    "batch": {
+      "refresh": false,
+      "repeat": 0,
+      "repeatInterval": 0
+    },
+    "actions": [
+      {
+        "name": "",
+        "initWait": 0,
+        "elementFinder": "//a[@aria-label=\"Sign in with SSO\"]",
+        "value": "MouseEvents::click",
+        "repeat": 0,
+        "repeatInterval": 0,
+        "addon": {
+          "elementFinder": "",
+          "value": "",
+          "condition": "",
+          "valueExtractor": "",
+          "recheck": 0,
+          "recheckInterval": 0,
+          "recheckOption": "stop"
+        }
+      }
+    ]
+  },
+  {
+    "name": "canvas login",
+    "url": "https://www.nus.edu.sg/canvas/login/",
+    "initWait": 0,
+    "startTime": "",
+    "enable": true,
+    "startType": "auto",
+    "loadType": "window",
+    "hotkey": "Ctrl + Shift + A",
+    "batch": {
+      "refresh": false,
+      "repeat": 0,
+      "repeatInterval": 0
+    },
+    "actions": [
+      {
+        "name": "",
+        "initWait": 0,
+        "elementFinder": "//a[contains(text(),\"NUS Students / Alumni\")]",
+        "value": "MouseEvents::click",
+        "repeat": 0,
+        "repeatInterval": 0,
+        "addon": {
+          "elementFinder": "",
+          "value": "",
+          "condition": "",
+          "valueExtractor": "",
+          "recheck": 0,
+          "recheckInterval": 0,
+          "recheckOption": "stop"
+        }
+      }
+    ]
+  }
+]
