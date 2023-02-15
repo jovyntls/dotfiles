@@ -7,10 +7,15 @@ export ZSH="$HOME/.oh-my-zsh"
 # crontab uses this to determine which editor
 export EDITOR=/usr/local/bin/vim
 
+# for nvm lazy load
+export NVM_LAZY_LOAD=true
+# speed up start time
+DISABLE_AUTO_UPDATE=true
+
 ZSH_THEME="mh"
 
 # PLUGINS
-plugins=(git)
+plugins=(git zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,8 +108,4 @@ unset __conda_setup
 
 # for running SML
 export PATH=/usr/local/smlnj/bin:"$PATH"
-# added by NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
