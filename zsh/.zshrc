@@ -84,28 +84,30 @@ function tre() {
   echo '\n(node_modules ignored)'
 }
 
-# for pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# TODO: lazy load, for now UNCOMMENT WHEN NEEDED ------------------------
 
-eval "$(rbenv init -)"
+# for pyenv
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
+
+# eval "$(rbenv init -)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jovyntan/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/jovyntan/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/jovyntan/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/jovyntan/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/Users/jovyntan/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/jovyntan/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/jovyntan/opt/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/jovyntan/opt/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
-# for running SML
-export PATH=/usr/local/smlnj/bin:"$PATH"
+# ----------------------------------------------
+
 
