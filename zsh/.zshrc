@@ -12,7 +12,7 @@ export NVM_LAZY_LOAD=true
 # speed up start time
 DISABLE_AUTO_UPDATE=true
 
-ZSH_THEME="mh"
+ZSH_THEME="nicemh"
 
 # PLUGINS
 plugins=(git zsh-nvm)

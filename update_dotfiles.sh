@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # vim 
-cp ~/.vimrc ./vim
-cp ~/.vim/UltiSnips/tex.snippets ./vim
-cp -r ~/.config/nvim .
+cp $HOME/.vimrc ./vim
+cp $HOME/.vim/UltiSnips/tex.snippets ./vim
+cp -r $HOME/.config/nvim .
 # zsh
-cp ~/.zshrc ./zsh
-cp ~/.oh-my-zsh/themes/mh.zsh-theme ./zsh
+cp $HOME/.zshrc ./zsh
+cp -r $HOME/.oh-my-zsh/custom ./zsh
 # kitty
-cp -r ~/.config/kitty .
+cp -r $HOME/.config/kitty .
 # amethyst config file
-cp ~/.amethyst.yml ./misc
+cp $HOME/.amethyst.yml ./misc
 # for specifying latex build files
-cp ~/.latexmkrc ./misc
+cp $HOME/.latexmkrc ./misc
 # editor settings
 cp ~/Library/Application\ Support/Code/User/settings.json ./vscode/
 # obsidian vimrc
