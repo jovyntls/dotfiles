@@ -236,6 +236,9 @@ let g:fzf_colors =
 \ 'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
 \ 'prompt':  ['fg', 'Function'],
 \ 'pointer': ['fg', 'CursorColumn'] }
+"Exclude filenames from :Ag search
+"https://github.com/junegunn/fzf.vim/issues/346#issuecomment-655446292
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 "Quick fuzzy find
 noremap <C-F> :Files<CR>
 inoremap <C-F> <Esc>:Files<CR>
