@@ -254,8 +254,6 @@ let NERDTreeMapPreviewSplit='X'
 let NERDTreeMapOpenVSplit='v'
 let NERDTreeMapPreviewVSplit='V'
 let NERDTreeMapPreview='O'
-let NERDTreeMapCloseDir='i'
-let NERDTreeMapCloseChildren='I'
 
 " fugitive.vim --------------------------------------
 nnoremap ,gg :GBrowse<CR>
@@ -335,6 +333,9 @@ inoremap <silent><expr> <TAB>
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><s-tab> coc#pum#visible() ? coc#pum#prev(1) : "\<s-tab>"
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " i mode: Use <c-space> to trigger completion)
 " v/x mode: Applying code actions to the selected code block
