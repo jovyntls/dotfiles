@@ -53,6 +53,9 @@ set complete=.,w,b,u,t  " remove i, which causes vimtex to search in usr/.../tex
 set noshowmode		      " for lightline
 set laststatus=2		    " for lightline + vim
 
+set spelllang=en_gb
+set nospell             " stop spell turning on for everything
+
 "----------------------------------------------------------
 " Misc configs that are important
 "----------------------------------------------------------
@@ -367,7 +370,7 @@ let &t_SR.="\<Esc>[2 q" "SR = REPLACE mode
 let &t_EI.="\<Esc>[2 q" "EI = NORMAL mode (ELSE)
 
 "Colour scheme modifications
-let g:seoul256_background = 234
+let g:seoul256_background = 235
 let g:lightline.colorscheme = 'seoul256'
 
 "Colour scheme
