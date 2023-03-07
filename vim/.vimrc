@@ -352,8 +352,9 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Use K to show documentation in preview window
 nnoremap <silent> ,gk :call ShowDocumentation()<CR>
+nnoremap <silent> ,gn <Plug>(coc-rename)
+nnoremap <silent> gd <Plug>(coc-definition)
 
 " Use `[e` and `]e` to navigate diagnostics
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
