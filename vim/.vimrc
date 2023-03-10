@@ -39,6 +39,7 @@ set expandtab
 set tabstop=2 shiftwidth=2
 set hlsearch incsearch
 set number
+set nowrap
 set scrolloff=8
 set splitright splitbelow
 set timeoutlen=300
@@ -57,13 +58,17 @@ set spelllang=en_gb
 set nospell             " stop spell turning on for everything
 
 "----------------------------------------------------------
-" Misc configs that are important
+" Configs for filetypes
 "----------------------------------------------------------
 
-augroup markdownTexSpell
+" handle markdown and tex files differently
+augroup markdownTexGroup
     autocmd!
+    " spellcheck
     autocmd FileType markdown,tex,text setlocal spell
     autocmd BufRead,BufNewFile *.mdx setlocal spell
+    " misc configs
+    autocmd FileType markdown,tex,text setlocal wrap
 augroup END
 
 let g:coc_start_at_startup=0
