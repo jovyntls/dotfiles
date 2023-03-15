@@ -53,7 +53,7 @@ set backspace=2         " required by delimitMate_expand_cr
 set complete=.,w,b,u,t  " remove i, which causes vimtex to search in usr/.../texlive
 set noshowmode		      " for lightline
 set laststatus=2		    " for lightline + vim
-
+set formatoptions+=j
 set spelllang=en_gb
 set nospell             " stop spell turning on for everything
 
@@ -141,6 +141,9 @@ nnoremap [m :tabm -1<CR>
 nnoremap ]m :tabm +1<CR>
 "Yank current (absolute) filepath into system clipboard
 nnoremap <leader>G :let @+ = expand("%")<CR>
+"Buffer navigation
+nnoremap [b :bprev<CR>
+nnoremap ]b :bnext<CR>
 
 " SELECTION -----------------------------------------
 "Swap v and V 
@@ -165,10 +168,9 @@ vnoremap * "zy<Esc>q/"zp<CR>
 nnoremap K kJ
 nnoremap gK kgJ
 
-"Move lines up/down with autoindent (normal mode)
+"Move lines up/down with autoindent
 nnoremap <C-K> :<C-u>silent! move-2<CR>==
 nnoremap <C-J> :<C-u>silent! move+<CR>==
-"Move lines up/down with autoindent (visual mode)
 xnoremap <C-K> :<C-u>silent! '<,'>move-2<CR>gv=gv
 xnoremap <C-J> :<C-u>silent! '<,'>move'>+<CR>gv=gv
 
