@@ -153,6 +153,13 @@ vnoremap > >gv
 " EDITING -------------------------------------------
 "Record with qq, play with Q
 nnoremap Q @q
+"apply on every line selected
+vnoremap Q :normal @q<CR> 
+
+"Search utilities
+nnoremap g/ /\c
+"Search for highlighted part
+vnoremap * "zy<Esc>q/"zp<CR>
 
 "Make K similar to J to join to above line
 nnoremap K kJ
