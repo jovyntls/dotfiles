@@ -256,12 +256,17 @@ let g:fzf_colors =
 "Exclude filenames from :Ag search
 "https://github.com/junegunn/fzf.vim/issues/346#issuecomment-655446292
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
-"Quick fuzzy find
-noremap <C-F> :Files<CR>
-inoremap <C-F> <Esc>:Files<CR>
-"Quick Ag fuzzy find
-noremap <C-A> :Ag<CR>
-inoremap <C-A> <Esc>:Ag<CR>
+"Fuzzy finds
+noremap <C-F> :GFiles<CR>
+inoremap <C-F> <Esc>:GFiles<CR>
+noremap <C-F><C-F> :Files<CR>
+inoremap <C-F><C-F> <Esc>:Files<CR>
+noremap <C-F><C-G> :GFiles<CR>
+inoremap <C-F><C-G> <Esc>:GFiles<CR>
+noremap <C-F><C-A> :Ag<CR>
+inoremap <C-F><C-A> <Esc>:Ag<CR>
+noremap <C-F><C-B> :Buffers<CR>
+inoremap <C-F><C-B> <Esc>:Buffers<CR>
 
 " NERDTree ------------------------------------------
 noremap <C-B> :NERDTreeToggle<CR>
