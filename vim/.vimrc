@@ -78,7 +78,6 @@ let g:coc_start_at_startup=0
 "----------------------------------------------------------
 
 let mapleader = " "
-nnoremap <leader>s :set inv
 
 "----------------------------------------------------------
 " Keymaps
@@ -214,8 +213,6 @@ cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 
 " SPELLCHECK ----------------------------------------
-"Toggle spellcheck on/off
-nnoremap <leader>ss :set invspell<CR>
 "Swap internal wordlist and spellfile
 nnoremap zg zG
 nnoremap zG zg
@@ -233,6 +230,11 @@ autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
 nnoremap Z mzH=L'z :delmark z<CR>
 "Wrap all lines to 72 characters for commit messages
 command Msg :set tw=72 | exe 'normal! gggqG gg"*yG :q!<CR>'
+
+" TOGGLES -------------------------------------------
+nnoremap <leader>s :set inv
+nnoremap <leader>ss :set invspell<CR>
+nnoremap <leader>sw :set invwrap<CR>
 
 
 "----------------------------------------------------------
