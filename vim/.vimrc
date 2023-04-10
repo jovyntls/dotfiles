@@ -376,6 +376,7 @@ endif
 nnoremap <silent> ,gk :call ShowDocumentation()<CR>
 nnoremap <silent> ,gn <Plug>(coc-rename)
 nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gr <Plug>(coc-references)
 
 " Use `[e` and `]e` to navigate diagnostics
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
