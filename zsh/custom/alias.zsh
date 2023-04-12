@@ -19,7 +19,7 @@ alias yr="yarn run"
 alias yst="yarn start"
 alias ysv="yarn serve"
 alias gpp="g++-11"
-alias py="python"
+alias py="python3"
 
 # navigation
 alias dt="cd ~/Desktop"
