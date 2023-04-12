@@ -14,6 +14,7 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'wellle/context.vim'
 " editing
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -67,6 +68,8 @@ augroup markdownTexGroup
     " spellcheck
     autocmd FileType markdown,tex,text setlocal spell
     autocmd BufRead,BufNewFile *.mdx setlocal spell
+    " disable context.vim
+    let g:context_enabled = 1
     " misc configs
     autocmd FileType markdown,tex,text setlocal wrap
 augroup END
@@ -322,6 +325,9 @@ let g:lightline.inactive = {
       \ 'left': [ [ 'filename' ] ],
       \ 'right': [],
       \ }
+
+" context.vim ---------------------------------------
+let g:context_add_mappings = 0 "disable the default mappings
 
 " coc.nvim ------------------------------------------
 let g:disable_coc_filetypes = ['tex']
