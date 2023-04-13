@@ -112,6 +112,9 @@ noremap L $
 "Go to start/end of page
 noremap ^ H
 noremap $ L
+" Move the view horizontally when nowrap is set
+nnoremap zl 10zl
+nnoremap zh 10zh
 "Navigate between split panes
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
@@ -156,6 +159,9 @@ vnoremap < <gv
 vnoremap > >gv
 
 " EDITING -------------------------------------------
+"Easier delete
+inoremap <S-BS> <Del>
+
 "Record with qq, play with Q
 nnoremap Q @q
 "apply on every line selected
