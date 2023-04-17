@@ -69,7 +69,7 @@ augroup markdownTexGroup
     autocmd FileType markdown,tex,text setlocal spell
     autocmd BufRead,BufNewFile *.mdx setlocal spell
     " disable context.vim
-    let g:context_enabled = 1
+    let g:context_enabled = 0
     " misc configs
     autocmd FileType markdown,tex,text setlocal wrap
 augroup END
@@ -335,6 +335,7 @@ let g:lightline.inactive = {
 
 " context.vim ---------------------------------------
 let g:context_add_mappings = 0 "disable the default mappings
+let g:context_highlight_tag = '<hide>'
 
 " coc.nvim ------------------------------------------
 let g:disable_coc_filetypes = ['tex']
