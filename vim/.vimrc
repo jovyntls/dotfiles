@@ -168,10 +168,12 @@ nnoremap Q @q
 vnoremap Q :normal @q<CR> 
 
 "Search utilities
+nnoremap g/ /\c
 nnoremap s :%s/
 vnoremap s :s/
+vnoremap gs "zy<Esc>:%s/\V<C-R>z/
 "Search for highlighted part
-vnoremap * "zy<Esc>q/i\V<Esc>"zp<CR>
+vnoremap * "zy<Esc>/\V<C-R>z<CR>
 
 "Make K similar to J to join to above line
 nnoremap K kJ
