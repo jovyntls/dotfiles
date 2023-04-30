@@ -55,7 +55,8 @@ focus-screen-ccw:
   key: c
 increase-main:
   mod: mod1
-  key: ,
+  key: ","
 decrease-main:
   mod: mod1
   key: .
+
