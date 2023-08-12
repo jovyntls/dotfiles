@@ -59,4 +59,16 @@ increase-main:
 decrease-main:
   mod: mod1
   key: .
+select-tall-layout:
+  mod: mod1
+  key: a
+select-tall-right-layout:
+  mod: mod1
+  key: s
+select-column-layout:
+  mod: mod1
+  key: d
+select-fullscreen-layout:
+  mod: mod1
+  key: f
 
