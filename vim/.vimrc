@@ -14,7 +14,6 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
-Plug 'wellle/context.vim'
 " editing
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -68,8 +67,6 @@ augroup markdownTexGroup
     " spellcheck
     autocmd FileType markdown,tex,text setlocal spell
     autocmd BufRead,BufNewFile *.mdx setlocal spell
-    " disable context.vim
-    let g:context_enabled = 0
     " misc configs
     autocmd FileType markdown,tex,text setlocal wrap
 augroup END
@@ -170,7 +167,6 @@ vnoremap Q :normal @q<CR>
 "Search utilities
 nnoremap g/ /\c
 nnoremap s :%s/
-vnoremap s :s/
 vnoremap gs "zy<Esc>:%s/\V<C-R>z/
 "Search for highlighted part
 vnoremap * "zy<Esc>/\V<C-R>z<CR>
@@ -334,10 +330,6 @@ let g:lightline.inactive = {
       \ 'left': [ [ 'filename' ] ],
       \ 'right': [],
       \ }
-
-" context.vim ---------------------------------------
-let g:context_add_mappings = 0 "disable the default mappings
-let g:context_highlight_tag = '<hide>'
 
 " coc.nvim ------------------------------------------
 let g:disable_coc_filetypes = ['tex']
