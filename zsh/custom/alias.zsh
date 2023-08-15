@@ -2,7 +2,7 @@
 
 # general
 alias vimrc="nvim -O ~/.vimrc ~/.config/nvim/init.vim"
-alias zshrc="nvim ~/.zshrc"
+alias zshrc="cd $ZSH_CUSTOM && nvim ~/.zshrc"
 alias fvf='nvim -c :Files'
 alias faf='nvim -c :Ag'
 alias vi='nvim'
@@ -34,5 +34,5 @@ alias sunfire="ssh jovyntls@sunfire.comp.nus.edu.sg"
 alias ffmplay="/Applications/ffmpeg-4.3-macos64-static/bin/ffplay ~/Desktop/ffmpeg-recording*.mp4"
 # semesterly aliases
 alias mbsd="markbind serve -d"
-alias mb="cd ~/Desktop/work/markbind"
+alias wk="cd ~/Desktop/work"
 
