@@ -1,3 +1,5 @@
+" Minimal config to start editing for machines without neovim
+
 set nocompatible
 filetype plugin indent on
 
@@ -24,10 +26,6 @@ Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips', { 'for': [ 'tex' ] }
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
-" install Prettier and load plugin only for editing supported files
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
