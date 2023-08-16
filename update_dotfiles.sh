@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # vim 
-cp $HOME/.vim/UltiSnips/tex.snippets ./vim
 cp -r $HOME/.config/nvim .
 # zsh
 cp $HOME/.zshrc ./zsh

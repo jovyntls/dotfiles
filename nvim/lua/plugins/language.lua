@@ -28,8 +28,8 @@ return {
       vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
       vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
       vim.env.HOME = vim.fn.expand('~')
-      vim.g.UltiSnipsSnippetsDir = vim.env.HOME .. '/.vim/UltiSnips'
-      vim.g.UltiSnipsSnippetDirectories = { vim.env.HOME .. '/.vim/UltiSnips' }
+      vim.g.UltiSnipsSnippetsDir = vim.env.HOME .. '/.config/nvim/my_snippets'
+      vim.g.UltiSnipsSnippetDirectories = { vim.env.HOME .. '/.config/nvim/my_snippets' }
     end
   },
 
