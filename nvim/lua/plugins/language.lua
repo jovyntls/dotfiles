@@ -75,7 +75,7 @@ return {
       keyset("x", "<c-space>", "<Plug>(coc-codeaction-selected)", opts)
       keyset("n", "<c-space>", "<Plug>(coc-codeaction-selected)", opts)
       -- Show all diagnostics
-      keyset("n", ",gl", ":<C-u>CocList diagnostics<cr>", opts)
+      keyset("n", ",gl", ":<C-u>CocList --normal diagnostics<cr>", opts)
 
       opts = { silent = true }
       -- Use `[e` and `]e` to navigate diagnostics
