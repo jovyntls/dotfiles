@@ -1,10 +1,11 @@
 local js_filetypes = { 'javascript', 'javascriptreact', 'jsx', 'jsx_pretty', 'typescript', 'typescriptreact', 'tsx' }
 
 local function table_concat(t1,t2)
-    for i=1,#t2 do
-        t1[#t1+1] = t2[i]
-    end
-    return t1
+  local t3 = {unpack(t1)}
+  for I = 1,#t2 do
+      t3[#t1+I] = t2[I]
+  end
+  return t3
 end
 
 return {
@@ -39,13 +40,14 @@ return {
   {
     'neoclide/coc.nvim',
     branch = 'release',
-    ft = table_concat(js_filetypes, { 'lua' }),
+    ft = table_concat(js_filetypes, { 'lua', 'java' }),
     cmd = 'Coc',
     config = function()
       vim.g.coc_global_extensions = {
         'coc-tsserver',
         'coc-json',
         'coc-vetur',
+        'coc-java',
         'coc-lua'
       }
       
