@@ -147,8 +147,6 @@ vnoremap Q :normal @q<CR>
 
 "Search utilities
 nnoremap g/ /\c
-nnoremap s :%s/
-vnoremap gs "zy<Esc>:%s/\V<C-R>z/
 "Search for highlighted part
 vnoremap * "zy<Esc>/\V<C-R>z<CR>
 

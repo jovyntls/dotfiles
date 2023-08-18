@@ -28,5 +28,12 @@ return {
 
   'tpope/vim-commentary',
   'tpope/vim-surround',
-  'easymotion/vim-easymotion',
+
+  {
+    'ggandor/leap.nvim',
+    config = function ()
+      require('leap').add_default_mappings()
+    end
+  }
 }
+
