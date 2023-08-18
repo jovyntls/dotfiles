@@ -10,6 +10,7 @@
   },
   "[java]": {
     "semanticTokens.enable": true
-  }
+  },
+  "Lua.diagnostics.globals": ["vim"]
 }
 

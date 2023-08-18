@@ -1,9 +1,11 @@
 local js_filetypes = { 'javascript', 'javascriptreact', 'jsx', 'jsx_pretty', 'typescript', 'typescriptreact', 'tsx' }
 
-local function table_concat(t1,t2)
-  local t3 = {unpack(t1)}
-  for I = 1,#t2 do
-      t3[#t1+I] = t2[I]
+local function table_concat(t1, t2)
+  -- neovim is built in lua 5.1 which uses the deprecated [unpack] instead of [table.unpack]
+  ---@diagnostic disable-next-line: deprecated
+  local t3 = { unpack(t1) }
+  for I = 1, #t2 do
+    t3[#t1 + I] = t2[I]
   end
   return t3
 end

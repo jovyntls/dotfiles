@@ -1,13 +1,13 @@
 {
   "coc.nvim": { "branch": "release", "commit": "9332d2ab1154dedc9dbcd3e1c873886abaf061a6" },
   "delimitMate": { "branch": "master", "commit": "537a1da0fa5eeb88640425c37e545af933c56e1b" },
-  "fzf": { "branch": "master", "commit": "c2806456719a8d72193c26180c6adbbd01afc42c" },
+  "fzf": { "branch": "master", "commit": "9d5392fb02db33dbc9798f2472654426f79a33f2" },
   "fzf.vim": { "branch": "master", "commit": "811f34b70b60b4df2997e3ba8cd109e7d06d683b" },
   "gv.vim": { "branch": "master", "commit": "320cc8c477c5acc4fa0e52a460d87b2af54fa051" },
   "lazy.nvim": { "branch": "main", "commit": "dac844ed617dda4f9ec85eb88e9629ad2add5e05" },
   "lightline.vim": { "branch": "master", "commit": "b1e91b41f5028d65fa3d31a425ff21591d5d957f" },
   "nerdtree": { "branch": "master", "commit": "c46e12a886b4a6618a9e834c90f6245952567115" },
-  "seoul256.vim": { "branch": "master", "commit": "dbff8cc9ddb2dc9708f6d1c284e8f82d4ccab9e4" },
+  "seoul256.vim": { "branch": "master", "commit": "da557fe796ef77d0bd4baacb914cc9696b233ef5" },
   "ultisnips": { "branch": "master", "commit": "24a3ebb36687b6d59a19d63173713575b486d739" },
   "vim-commentary": { "branch": "master", "commit": "e87cd90dc09c2a203e13af9704bd0ef79303d755" },
   "vim-easymotion": { "branch": "master", "commit": "b3cfab2a6302b3b39f53d9fd2cd997e1127d7878" },
@@ -17,5 +17,5 @@
   "vim-peekaboo": { "branch": "master", "commit": "cc4469c204099c73dd7534531fa8ba271f704831" },
   "vim-rhubarb": { "branch": "master", "commit": "ee69335de176d9325267b0fd2597a22901d927b1" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
-  "vimtex": { "branch": "master", "commit": "c58590009be0eff0c234527bb48fa1653afe41bd" }
+  "vimtex": { "branch": "master", "commit": "e3d0bea39dbcb6e064db751b646c958342a3460f" }
 }

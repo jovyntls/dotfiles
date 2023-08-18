@@ -6,7 +6,7 @@ return {
       vim.g.delimitMate_expand_space = 1
       vim.g.delimitMate_nesting_quotes = { '`', '"' }
 
-      local augroup = vim.api.nvim_create_augroup('delimitmateGroup', { clear = true })
+      local delimitmateGroup = vim.api.nvim_create_augroup('delimitmateGroup', { clear = true })
 
       vim.api.nvim_create_autocmd('FileType', {
         pattern = 'tex',
