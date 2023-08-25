@@ -1,12 +1,13 @@
 # ALIASES --------------------------------------------------------
 
 # general
-alias vimrc="nvim -O ~/.vimrc ~/.config/nvim/init.vim"
+alias vimrc="cd ~/.config/nvim && nvim ~/.config/nvim/init.lua"
 alias zshrc="cd $ZSH_CUSTOM && nvim ~/.zshrc"
 alias fvf='nvim -c :Files'
 alias faf='nvim -c :Ag'
 alias vi='nvim'
 alias vig='nvim +G +only'
+alias kssh="kitty +kitten ssh"
 
 # for development
 alias gcamend="git commit --amend --no-edit"
