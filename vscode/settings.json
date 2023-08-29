@@ -14,7 +14,6 @@
 	"editor.fontFamily": "'Roboto Mono', Menlo, Monaco, 'Courier New', monospace",
 	"editor.glyphMargin": false, // removes the debugging marker column
 	"editor.minimap.enabled": false, // removes the right side map column
-	// aesthetics
 	"workbench.colorTheme": "Mariana Pro (Gray)",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.colorCustomizations": {
@@ -23,6 +22,7 @@
 			"editor.foreground": "#cacaca"
 		}
 	},
+	"editor.bracketPairColorization.enabled": false,
 	"editor.tokenColorCustomizations": {
 		"[Mariana Pro (Gray)]": {
 			"strings": "#acc9a9",
