@@ -42,13 +42,14 @@ return {
   {
     'neoclide/coc.nvim',
     branch = 'release',
-    ft = table_concat(js_filetypes, { 'lua', 'java' }),
+    ft = table_concat(js_filetypes, { 'lua', 'java', 'python', 'python2' }),
     cmd = 'Coc',
     config = function()
       vim.g.coc_global_extensions = {
         'coc-tsserver',
         'coc-json',
         'coc-vetur',
+        'coc-pyright',
         'coc-java',
         'coc-lua'
       }
