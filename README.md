@@ -8,7 +8,7 @@ setup for new device:
 * install oh-my-zsh (and zsh)
 * reinstall vim using brew to fix paths (or UltiSnips complains)
   * if not fixed: use `brew link vim`
-* install vim-plug
+* install nvim
 * for fzf vim - Bat, the_silver_searcher
 * for latex - MacTex, latexmk
 * misc: Alfred and Amethyst

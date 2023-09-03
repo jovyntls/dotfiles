@@ -1,6 +1,8 @@
 " General keymaps
 
-" Neovim-specific ----------------------------------------------------------
+let mapleader = " "
+
+" <NEOVIM-ONLY> ------------------------------------------------------------
 
 " Disable mouse
 set mouse=
@@ -8,10 +10,10 @@ set mouse=
 " Terminal settings for nvim
 autocmd TermOpen * setlocal nonumber norelativenumber
 autocmd BufWinEnter,WinEnter term://* startinsert
-nnoremap <leader>vt :vsplit term://zsh<CR>
-nnoremap <leader>ht :split term://zsh<CR>
+nnoremap <leader>vt :50 vsplit term://zsh<CR>
+nnoremap <leader>ht :15 split term://zsh<CR>
 
-" .vimrc -------------------------------------------------------------------
+" </NEOVIM-ONLY> -----------------------------------------------------------
 
 set nocompatible
 filetype plugin indent on
@@ -50,12 +52,6 @@ augroup markdownTexGroup
     " misc configs
     autocmd FileType markdown,tex,text setlocal wrap
 augroup END
-
-"----------------------------------------------------------
-" Editing settings
-"----------------------------------------------------------
-
-let mapleader = " "
 
 "----------------------------------------------------------
 " Keymaps
@@ -116,9 +112,6 @@ nnoremap <silent> <S-Down> :resize -5<CR>
 "Resize panes
 nnoremap <silent> <S-Right> :vertical resize +5<CR>
 nnoremap <silent> <S-Left> :vertical resize -5<CR>
-"Open a terminal
-nnoremap <leader>ht :below term++rows=15<CR>
-nnoremap <leader>vt :vertical term++cols=50<CR>
 "Move tabs
 nnoremap [m :tabm -1<CR>
 nnoremap ]m :tabm +1<CR>
