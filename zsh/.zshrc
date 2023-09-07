@@ -20,6 +20,9 @@ plugins=(git zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # exams record function
 function ffmrecord() {
   /Applications/ffmpeg-4.3-macos64-static/bin/ffmpeg -f avfoundation -r 1 -probesize 20M -threads 1 -i "1:" -vcodec libx264 -b:v 128k -s hd720 ~/Desktop/ffmpeg-recording-$(timestamp).mp4
