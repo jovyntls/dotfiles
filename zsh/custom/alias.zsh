@@ -7,6 +7,7 @@ alias fvf='nvim -c :Files'
 alias faf='nvim -c :Ag'
 alias vi='nvim'
 alias vig='nvim +G +only'
+alias vit='nvim -O *.tex'
 alias kssh="kitty +kitten ssh"
 
 # for development
