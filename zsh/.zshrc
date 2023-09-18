@@ -19,6 +19,7 @@ ZSH_THEME="nicemh"
 plugins=(git zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/custom/alias.zsh
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

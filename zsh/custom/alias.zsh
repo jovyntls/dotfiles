@@ -21,7 +21,9 @@ alias yr="yarn run"
 alias yst="yarn start"
 alias ysv="yarn serve"
 alias gpp="g++-11"
+alias pip="pip3"
 alias py="python3"
+alias python="python3"
 
 # navigation
 alias dt="cd ~/Desktop"
@@ -37,4 +39,6 @@ alias ffmplay="/Applications/ffmpeg-4.3-macos64-static/bin/ffplay ~/Desktop/ffmp
 # semesterly aliases
 alias mbsd="markbind serve -d"
 alias wk="cd ~/Desktop/work"
+alias fyp="cd ~/Desktop/work/fyp && tree -L 1"
+alias ap="cd ~/Desktop/not\ work/aphrodite-monorepo"
 
