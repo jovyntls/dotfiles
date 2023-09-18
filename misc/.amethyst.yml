@@ -9,6 +9,10 @@ mod1:
 mod2: 
   - shift
   - option
+mod3: 
+  - shift
+  - option
+  - control
 floating:
   - ru.keepcoder.Telegram
   - com.spotify.client
@@ -31,10 +35,16 @@ focus-cw:
   key: l
 swap-ccw:
   mod: mod2
-  key: H
+  key: h
 swap-cw:
   mod: mod2
-  key: L
+  key: l
+swap-screen-ccw:
+  mod: mod3
+  key: h
+swap-screen-cw:
+  mod: mod3
+  key: l
 swap-main:
   mod: mod1
   key: enter
