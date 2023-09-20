@@ -205,7 +205,7 @@ inoremap <C-S> <Esc>uea<C-X><C-S>
 
 " FORMATTING ----------------------------------------
 "Format json files with gg=G
-autocmd FileType json nnoremap <buffer> gg=G :%!python -m json.tool<CR>gg=G
+autocmd FileType json nnoremap <buffer> gg=G :%!python3 -m json.tool<CR>gg=G
 "Indent visible lines on page
 nnoremap Z mzH=L'z :delmark z<CR>
 "Wrap all lines to 72 characters for commit messages
@@ -215,6 +215,7 @@ command Msg :set tw=72 | exe 'normal! gggqG gg"*yG :q!<CR>'
 nnoremap <leader>s :set inv
 nnoremap <leader>ss :set invspell<CR>
 nnoremap <leader>sw :set invwrap<CR>
+nnoremap <leader>sl :set invlinebreak<CR>
 
 "Mode Settings
 let &t_SI.="\<Esc>[6 q" "SI = INSERT mode
