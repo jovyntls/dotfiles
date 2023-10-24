@@ -51,6 +51,7 @@ augroup markdownTexGroup
     autocmd BufRead,BufNewFile *.mdx setlocal spell
     " misc configs
     autocmd FileType markdown,tex,text setlocal wrap
+    autocmd FileType markdown setlocal linebreak
 augroup END
 
 "----------------------------------------------------------
@@ -174,6 +175,7 @@ noremap <leader>C "_c$
 
 "Toggle fold with zf
 nnoremap zf za
+nnoremap za zf
 
 "Quick :nohl
 nnoremap <silent> <C-H> :nohl<CR>
