@@ -54,6 +54,11 @@ augroup markdownTexGroup
     autocmd FileType markdown setlocal linebreak
 augroup END
 
+" detect ANTLR
+augroup detectANTLR
+  autocmd BufRead,BufNewFile *.g4 set filetype=antlr4
+augroup END
+
 "----------------------------------------------------------
 " Keymaps
 "----------------------------------------------------------

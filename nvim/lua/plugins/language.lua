@@ -35,6 +35,11 @@ return {
       vim.g.UltiSnipsSnippetDirectories = { vim.env.HOME .. '/.config/nvim/my_snippets' }
     end
   },
+  
+  {
+    'dylon/vim-antlr',
+    ft = { 'antlr4' }
+  },
 
   { 'pangloss/vim-javascript',  ft = js_filetypes },
   { 'MaxMEllon/vim-jsx-pretty', ft = js_filetypes },
