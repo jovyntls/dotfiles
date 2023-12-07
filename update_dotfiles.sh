@@ -11,6 +11,8 @@ cp -r $HOME/.config/kitty .
 cp $HOME/.amethyst.yml ./misc
 # for specifying latex build files
 cp $HOME/.latexmkrc ./misc
+# visidata config file
+cp $HOME/.visidatarc ./misc
 # editor settings
 cp ~/Library/Application\ Support/Code/User/settings.json ./vscode/
 # obsidian vimrc
