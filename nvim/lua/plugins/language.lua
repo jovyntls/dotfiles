@@ -25,6 +25,7 @@ return {
       vim.g.UltiSnipsSnippetDirectories = { vim.env.HOME .. '/.config/nvim/my_snippets' }
     end
   },
+  -- { 'quangnguyen30192/cmp-nvim-ultisnips', dependencies = 'hrsh7th/nvim-cmp' },
 
   {
     'dylon/vim-antlr',
@@ -41,21 +42,37 @@ return {
       dependencies = { "williamboman/mason.nvim" }
     },
     config = function()
-      -- setup dependencies
+      -- define lsp_capabilities from cmp_nvim_lsp
+      local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local default_setup = function(server)
+        require('lspconfig')[server].setup({ capabilities = lsp_capabilities })
+      end
+
+      -- setup and configure lsp servers
       require("mason").setup()
       require("mason-lspconfig").setup{
         ensure_installed = { 'lua_ls', 'pyright' },
-      }
-
-      -- setup lsp servers
-      local lspconfig = require('lspconfig')
-      lspconfig.pyright.setup {}
-      lspconfig.lua_ls.setup {
-        settings = {
-          Lua = {
-            diagnostics = { globals = { "vim" } },
-          }
-        }
+        handlers = {
+          default_setup,
+          lua_ls = function()
+            require('lspconfig').lua_ls.setup({
+              capabilities = lsp_capabilities,
+              settings = {
+                Lua = {
+                  diagnostics = {
+                    globals = { 'vim' },
+                  },
+                  -- workspace = {
+                  --   library = {
+                  --     [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                  --     [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                  --   },
+                  -- },
+                },
+              },
+            })
+          end,
+        },
       }
 
       local keyset = vim.keymap.set
@@ -99,6 +116,9 @@ return {
       })
     end
   },
+
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/nvim-cmp' },
 
   --{
   --  'neoclide/coc.nvim',
