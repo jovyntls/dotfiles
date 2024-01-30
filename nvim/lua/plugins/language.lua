@@ -52,13 +52,14 @@ return {
     config = function()
       vim.g.coc_global_extensions = {
         'coc-tsserver',
+        'coc-prettier',
         'coc-json',
         'coc-vetur',
         'coc-pyright',
         'coc-java',
         'coc-lua'
       }
-      
+
       -- <from https://github.com/neoclide/coc.nvim>
       local keyset = vim.keymap.set
 
@@ -126,6 +127,10 @@ return {
       vim.api.nvim_create_user_command("CocFormat", "call CocAction('format')", {})
 
       -- </from https://github.com/neoclide/coc.nvim>
+
+      -- Format with Prettier
+      -- vim.api.nvim_create_user_command("CocPrettier", "call CocAction('format')", {})
+      vim.cmd([[ command! -nargs=0 CocPrettier :CocCommand prettier.forceFormatDocument ]])
     end
   },
 }
