@@ -1,15 +1,5 @@
 local js_filetypes = { 'javascript', 'javascriptreact', 'jsx', 'jsx_pretty', 'typescript', 'typescriptreact', 'tsx' }
 
-local function table_concat(t1, t2)
-  -- neovim is built in lua 5.1 which uses the deprecated [unpack] instead of [table.unpack]
-  ---@diagnostic disable-next-line: deprecated
-  local t3 = { unpack(t1) }
-  for I = 1, #t2 do
-    t3[#t1 + I] = t2[I]
-  end
-  return t3
-end
-
 return {
   {
     'lervag/vimtex',
@@ -35,7 +25,7 @@ return {
       vim.g.UltiSnipsSnippetDirectories = { vim.env.HOME .. '/.config/nvim/my_snippets' }
     end
   },
-  
+
   {
     'dylon/vim-antlr',
     ft = { 'antlr4' }
@@ -44,28 +34,40 @@ return {
   { 'pangloss/vim-javascript',  ft = js_filetypes },
   { 'MaxMEllon/vim-jsx-pretty', ft = js_filetypes },
 
-  { 
-    "williamboman/mason.nvim",
-    init = function()
-      -- optimised to load minimally; lazy loading not recommended
-      require("mason").setup()
-    end
-  },
   {
     'neovim/nvim-lspconfig',
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+      dependencies = { "williamboman/mason.nvim" }
+    },
     config = function()
+      -- setup dependencies
+      require("mason").setup()
+      require("mason-lspconfig").setup{
+        ensure_installed = { 'lua_ls', 'pyright' },
+      }
+
+      -- setup lsp servers
       local lspconfig = require('lspconfig')
-      lspconfig.pyright.setup{}
+      lspconfig.pyright.setup {}
+      lspconfig.lua_ls.setup {
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+          }
+        }
+      }
 
       local keyset = vim.keymap.set
 
       -- global mappings
-      keyset('n', '[e', vim.diagnostic.goto_prev, opts)
-      keyset('n', ']e', vim.diagnostic.goto_next, opts)
-      keyset('n', '<leader>ge', vim.diagnostic.open_float, opts)
+      keyset('n', '[e', vim.diagnostic.goto_prev)
+      keyset('n', ']e', vim.diagnostic.goto_next)
+      keyset('n', '<leader>ge', vim.diagnostic.open_float)
       -- keyset('n', '<leader>gl', vim.diagnostic.setloclist)
 
-      -- buffer local mappings
+      vim.diagnostic.config ({ update_in_insert = true, virtual_text = false })
+
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -74,6 +76,8 @@ return {
           -- Enable completion triggered by <c-x><c-o>
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
+          -- buffer local mappings
+          local opts = { buffer = ev.buf }
           -- goto + show docs
           keyset('n', 'gd', vim.lsp.buf.definition, opts)
           keyset('n', '<leader>gd', vim.lsp.buf.definition, opts)
