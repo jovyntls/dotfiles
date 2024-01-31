@@ -150,7 +150,8 @@ return {
           { name = 'ultisnips' },
         },
         window = {
-          completion = { max_width = 130, winhighlight = 'Normal:CmpPMenu,CursorLine:CmpCursorLine' }, -- defined in ui.lua
+          -- [CmpPMenu] and [CmpCursorLine] defined in ui.lua
+          completion = { max_width = 130, winhighlight = 'Normal:CmpPMenu,CursorLine:CmpCursorLine' },
           documentation = { border = 'solid', max_width = 130, winhighlight = 'Normal:CmpPMenu' },
         },
         mapping = cmp.mapping.preset.insert({

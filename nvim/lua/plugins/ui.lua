@@ -7,6 +7,9 @@ return {
       vim.g.seoul256_background = 235
       vim.cmd.colorscheme('seoul256')
 
+      -- fix comment overriding todo highlight
+      vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
+
       -- define colours for nvim-cmp
 
       local recolour = function(highlight_group, fg, opts)
