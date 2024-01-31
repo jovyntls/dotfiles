@@ -145,6 +145,7 @@ return {
   },
 
   { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-nvim-lua' },
   {
     'hrsh7th/nvim-cmp',
     dependencies = { {
@@ -174,6 +175,7 @@ return {
         sources = {
           { name = 'nvim_lsp' },
           { name = 'ultisnips' },
+          { name = 'nvim_lua' },
         },
         window = {
           -- [CmpPMenu] and [CmpCursorLine] defined in ui.lua
@@ -214,8 +216,8 @@ return {
               nvim_lsp = "[LSP]",
               ultisnips = "[UltiSnips]",
               nvim_lua = "[Lua]",
-              latex_symbols = "[LaTeX]",
             })[entry.source.name]
+            vim_item.dup = 0
             return vim_item
           end
         },
