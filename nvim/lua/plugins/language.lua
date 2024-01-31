@@ -14,20 +14,6 @@ return {
   },
 
   {
-    'sirver/ultisnips',
-    ft = { 'tex' },
-    init = function()
-      vim.g.UltiSnipsExpandTrigger = '<tab>'
-      vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
-      vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
-      vim.env.HOME = vim.fn.expand('~')
-      vim.g.UltiSnipsSnippetsDir = vim.env.HOME .. '/.config/nvim/my_snippets'
-      vim.g.UltiSnipsSnippetDirectories = { vim.env.HOME .. '/.config/nvim/my_snippets' }
-    end
-  },
-  -- { 'quangnguyen30192/cmp-nvim-ultisnips', dependencies = 'hrsh7th/nvim-cmp' },
-
-  {
     'dylon/vim-antlr',
     ft = { 'antlr4' }
   },
@@ -56,7 +42,7 @@ return {
       -- setup and configure lsp servers
       require("mason").setup()
       require("mason-lspconfig").setup {
-        ensure_installed = { 'lua_ls', 'pyright' },
+        ensure_installed = { 'lua_ls', 'pyright', 'texlab', 'tsserver' },
         handlers = {
           default_setup,
           lua_ls = function()
@@ -99,9 +85,6 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
-          -- Enable completion triggered by <c-x><c-o>
-          vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
           -- buffer local mappings
           local opts = { buffer = ev.buf }
           -- goto + show docs
@@ -138,6 +121,21 @@ return {
   { 'hrsh7th/cmp-nvim-lsp' },
   {
     'hrsh7th/nvim-cmp',
+    dependencies = { {
+      'quangnguyen30192/cmp-nvim-ultisnips',
+      dependencies = {
+        'sirver/ultisnips',
+        ft = { 'tex' },
+        init = function()
+          vim.g.UltiSnipsExpandTrigger = '<tab>'
+          vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
+          vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
+          vim.env.HOME = vim.fn.expand('~')
+          vim.g.UltiSnipsSnippetsDir = vim.env.HOME .. '/.config/nvim/my_snippets'
+          vim.g.UltiSnipsSnippetDirectories = { vim.env.HOME .. '/.config/nvim/my_snippets' }
+        end
+      },
+    } },
     config = function()
       local cmp = require('cmp')
       local if_cmp_visible = function(action_to_do)
@@ -149,15 +147,17 @@ return {
       cmp.setup({
         sources = {
           { name = 'nvim_lsp' },
-          -- don't mix with ultisnips
+          { name = 'ultisnips' },
         },
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = { max_width = 130, winhighlight = 'Normal:CmpPMenu,CursorLine:CmpCursorLine' }, -- defined in ui.lua
+          documentation = { border = 'solid', max_width = 130, winhighlight = 'Normal:CmpPMenu' },
         },
         mapping = cmp.mapping.preset.insert({
           ['<Tab>'] = cmp.mapping(if_cmp_visible(cmp.select_next_item), { "i", "s" }),
           ['<S-Tab>'] = cmp.mapping(if_cmp_visible(cmp.select_prev_item), { "i", "s" }),
+          ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { "i" }), -- keep the manual C-p and C-n
+          ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { "i" }), -- keep the manual C-p and C-n
           ['<C-b>'] = cmp.mapping(if_cmp_visible(function() cmp.scroll_docs(-4) end), { "i", "c" }),
           ['<C-f>'] = cmp.mapping(if_cmp_visible(function() cmp.scroll_docs(4) end), { "i", "c" }),
           ['<C-Space>'] = cmp.mapping.complete(),
@@ -175,16 +175,4 @@ return {
       })
     end
   },
-
-  --{
-  --  'neoclide/coc.nvim',
-  --  config = function()
-  --    -- <from https://github.com/neoclide/coc.nvim>
-  --    local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
-  --
-  --    -- Show all diagnostics
-  --    keyset("n", ",gl", ":<C-u>CocList --normal diagnostics<cr>", opts)
-  --    -- </from https://github.com/neoclide/coc.nvim>
-  --  end
-  --},
 }
