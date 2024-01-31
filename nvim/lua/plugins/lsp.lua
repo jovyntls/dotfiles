@@ -91,10 +91,11 @@ return {
         },
       }
 
+      -- configure diagnostics
       vim.diagnostic.config({
         update_in_insert = true,
         virtual_text = false,
-        float = { border = 'solid', source = 'always' },
+        float = { source = 'always', border = 'solid', max_width = 100 },
       })
 
       -- KEY MAPPINGS ---------------------------------------------------------

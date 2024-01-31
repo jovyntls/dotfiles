@@ -19,6 +19,8 @@ return {
       end
 
       local clr = {
+        darkerbg = 233,
+        lighterbg = 238,
         mutegray = 59,
         deepblue = 68,
         neutralblue = 109,
@@ -30,8 +32,9 @@ return {
         lilac = 146,
       }
 
-      recolour("CmpPmenu", 'None', { ctermbg = 233 })
-      recolour("CmpCursorLine", 'None', { ctermbg = 238 })
+      recolour("CmpPmenu", 'None', { ctermbg = clr.darkerbg })
+      recolour("CmpCursorLine", 'None', { ctermbg = clr.lighterbg })
+      recolour('NormalFloat', 'None', { ctermbg = clr.darkerbg }) -- for diagnostics float
 
       recolour("CmpItemAbbrDeprecated", clr.mutegray, { strikethrough = true })
       recolour("CmpItemMenu", clr.mutegray, { italic = true })
