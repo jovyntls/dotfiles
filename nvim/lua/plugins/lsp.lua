@@ -1,5 +1,33 @@
 local js_filetypes = { 'javascript', 'javascriptreact', 'jsx', 'jsx_pretty', 'typescript', 'typescriptreact', 'tsx' }
 
+local kind_icons = {
+  Text = "󰉿",
+  Method = "󰆧",
+  Function = "󰊕",
+  Constructor = "",
+  Field = "󰜢",
+  Variable = "󰀫",
+  Class = "󰠱",
+  Interface = "",
+  Module = "",
+  Property = "󰜢",
+  Unit = "󰑭",
+  Value = "󰎠",
+  Enum = "",
+  Keyword = "󰌋",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "󰈇",
+  Folder = "󰉋",
+  EnumMember = "",
+  Constant = "󰏿",
+  Struct = "󰙅",
+  Event = "",
+  Operator = "󰆕",
+  TypeParameter = "",
+}
+
 return {
   {
     'lervag/vimtex',
@@ -28,7 +56,7 @@ return {
       dependencies = { "williamboman/mason.nvim" }
     },
     config = function()
-      -- define lsp_capabilities from cmp_nvim_lsp
+      -- setup lsp_capabilities from cmp_nvim_lsp
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
       local default_setup = function(server)
         require('lspconfig')[server].setup({
@@ -45,7 +73,7 @@ return {
         ensure_installed = { 'lua_ls', 'pyright', 'texlab', 'tsserver' },
         handlers = {
           default_setup,
-          lua_ls = function()
+          lua_ls = function() -- fix undefined global vim
             require('lspconfig').lua_ls.setup({
               capabilities = lsp_capabilities,
               settings = {
@@ -63,6 +91,13 @@ return {
         },
       }
 
+      vim.diagnostic.config({
+        update_in_insert = true,
+        virtual_text = false,
+        float = { border = 'solid', source = 'always' },
+      })
+
+      -- KEY MAPPINGS ---------------------------------------------------------
       local keyset = vim.keymap.set
 
       -- global mappings
@@ -71,17 +106,7 @@ return {
       keyset('n', '<leader>ge', vim.diagnostic.open_float)
       -- keyset('n', '<leader>gl', vim.diagnostic.setloclist)
 
-      vim.diagnostic.config({
-        update_in_insert = true,
-        virtual_text = false,
-        float = {
-          border = 'solid',
-          source = 'always',
-        },
-      })
-
-      -- Use LspAttach autocommand to only map the following keys
-      -- after the language server attaches to the current buffer
+      -- only map keys after the language server attaches to the current buffer
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
@@ -107,10 +132,11 @@ return {
         end,
       })
 
+      -- AESTHETIC IMPROVEMENTS -----------------------------------------------
+      -- nicer diagnostic symbols
       local sign = function(opts)
         vim.fn.sign_define(opts.name, { texthl = opts.name, text = opts.text, numhl = "" })
       end
-
       sign({ name = 'DiagnosticSignError', text = '✘' })
       sign({ name = 'DiagnosticSignWarn', text = '▲' })
       sign({ name = 'DiagnosticSignHint', text = '●' })
@@ -177,6 +203,21 @@ return {
           expand = function(args)
             vim.fn["UltiSnips#Anon"](args.body)
           end,
+        },
+        formatting = {
+          format = function(entry, vim_item)
+            -- add icons for CmpItemKind (manually implement lspkind.nvim)
+            vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+            -- Source
+            vim_item.menu = ({
+              buffer = "[Buffer]",
+              nvim_lsp = "[LSP]",
+              ultisnips = "[UltiSnips]",
+              nvim_lua = "[Lua]",
+              latex_symbols = "[LaTeX]",
+            })[entry.source.name]
+            return vim_item
+          end
         },
       })
     end

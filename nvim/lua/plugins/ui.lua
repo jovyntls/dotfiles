@@ -19,7 +19,7 @@ return {
       end
 
       local clr = {
-        mutegray = 145,
+        mutegray = 59,
         deepblue = 68,
         neutralblue = 109,
         neutralgreen = 108,
