@@ -45,7 +45,12 @@ return {
       -- define lsp_capabilities from cmp_nvim_lsp
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
       local default_setup = function(server)
-        require('lspconfig')[server].setup({ capabilities = lsp_capabilities })
+        require('lspconfig')[server].setup({
+          capabilities = lsp_capabilities,
+          handlers = {
+            ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'solid' }),
+          }
+        })
       end
 
       -- setup and configure lsp servers
@@ -63,9 +68,7 @@ return {
                     globals = { 'vim' },
                   },
                   workspace = {
-                    library = {
-                      vim.env.VIMRUNTIME,
-                    }
+                    library = { vim.env.VIMRUNTIME }
                   }
                 },
               },
@@ -82,7 +85,14 @@ return {
       keyset('n', '<leader>ge', vim.diagnostic.open_float)
       -- keyset('n', '<leader>gl', vim.diagnostic.setloclist)
 
-      vim.diagnostic.config({ update_in_insert = true, virtual_text = false })
+      vim.diagnostic.config({
+        update_in_insert = true,
+        virtual_text = false,
+        float = {
+          border = 'solid',
+          source = 'always',
+        },
+      })
 
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
@@ -113,6 +123,15 @@ return {
           end, opts)
         end,
       })
+
+      local sign = function(opts)
+        vim.fn.sign_define(opts.name, { texthl = opts.name, text = opts.text, numhl = "" })
+      end
+
+      sign({ name = 'DiagnosticSignError', text = '✘' })
+      sign({ name = 'DiagnosticSignWarn', text = '▲' })
+      sign({ name = 'DiagnosticSignHint', text = '●' })
+      sign({ name = 'DiagnosticSignInfo', text = '»' })
     end
   },
 
