@@ -111,6 +111,7 @@ return {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
           -- buffer local mappings
+          -- diagnostics list and references list are handled by trouble.nvim
           local opts = { buffer = ev.buf }
           -- goto + show docs
           keyset('n', 'gd', vim.lsp.buf.definition, opts)
@@ -122,7 +123,6 @@ return {
 
           -- refactor
           keyset('n', '<leader>gn', vim.lsp.buf.rename, opts)
-          keyset('n', '<leader>gr', vim.lsp.buf.references, opts)
           keyset('n', '<leader>ga', vim.lsp.buf.code_action, opts)
 
           -- format

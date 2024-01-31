@@ -65,5 +65,15 @@ return {
       { "<C-R>", mode = "i" }
     },
     cmd = "Registers",
+  },
+
+  {
+    'folke/trouble.nvim',
+    opts = { icons = false },
+    keys = {
+      { '<leader>gl', '<cmd>TroubleToggle document_diagnostics<cr>' },
+      { '<leader>gL', '<cmd>TroubleToggle workspace_diagnostics<cr>' },
+      { '<leader>gr', '<cmd>TroubleToggle lsp_references<cr>' },
+    },
   }
 }
