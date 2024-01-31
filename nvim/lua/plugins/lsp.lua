@@ -154,6 +154,11 @@ return {
           completion = { max_width = 130, winhighlight = 'Normal:CmpPMenu,CursorLine:CmpCursorLine' },
           documentation = { border = 'solid', max_width = 130, winhighlight = 'Normal:CmpPMenu' },
         },
+        enabled = function()
+          -- disable in comments (but enable in cmdline mode and cursor is in a comment)
+          local context = require('cmp.config.context')
+          return vim.api.nvim_get_mode().mode == 'c' or not context.in_syntax_group("Comment")
+        end,
         mapping = cmp.mapping.preset.insert({
           ['<Tab>'] = cmp.mapping(if_cmp_visible(cmp.select_next_item), { "i", "s" }),
           ['<S-Tab>'] = cmp.mapping(if_cmp_visible(cmp.select_prev_item), { "i", "s" }),
