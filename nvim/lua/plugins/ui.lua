@@ -1,3 +1,23 @@
+local recolour = function(highlight_group, fg, opts)
+  opts = opts or {}       -- default value
+  opts.ctermfg = fg
+  vim.api.nvim_set_hl(0, highlight_group, opts)
+end
+
+local clr = {
+  darkerbg = 233,
+  lighterbg = 238,
+  mutegray = 59,
+  deepblue = 68,
+  neutralblue = 109,
+  neutralgreen = 108,
+  orangeyellow = 179,
+  orange = 173,
+  yellow = 222,
+  hotpink = 168,
+  lilac = 146,
+}
+
 return {
   {
     'jovyntls/seoul256.vim',
@@ -11,27 +31,6 @@ return {
       vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
 
       -- define colours for nvim-cmp
-
-      local recolour = function(highlight_group, fg, opts)
-        opts = opts or {} -- default value
-        opts.ctermfg = fg
-        vim.api.nvim_set_hl(0, highlight_group, opts)
-      end
-
-      local clr = {
-        darkerbg = 233,
-        lighterbg = 238,
-        mutegray = 59,
-        deepblue = 68,
-        neutralblue = 109,
-        neutralgreen = 108,
-        orangeyellow = 179,
-        orange = 173,
-        yellow = 222,
-        hotpink = 168,
-        lilac = 146,
-      }
-
       recolour("CmpPmenu", 'None', { ctermbg = clr.darkerbg })
       recolour("CmpCursorLine", 'None', { ctermbg = clr.lighterbg })
       recolour('NormalFloat', 'None', { ctermbg = clr.darkerbg }) -- for diagnostics float
