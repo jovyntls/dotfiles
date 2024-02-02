@@ -1,3 +1,24 @@
+-- Find the git root directory
+local function find_git_root()
+  local current_file = vim.api.nvim_buf_get_name(0)
+  local cwd = vim.fn.getcwd()
+  --
+  -- Extract the directory from the current file's path
+  local current_dir
+  if current_file == '' then
+    current_dir = cwd
+  else
+    current_dir = vim.fn.fnamemodify(current_file, ':h')
+  end
+
+  -- Find the Git root directory from the current file's path
+  local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
+  if vim.v.shell_error ~= 0 then
+    return cwd
+  end
+  return git_root
+end
+
 return {
   {
     'preservim/nerdtree',
@@ -15,12 +36,9 @@ return {
     end
   },
 
-  'junegunn/fzf',
   {
     'junegunn/fzf.vim',
-    opts = {
-      noremap = true,
-    },
+    dependencies = 'junegunn/fzf',
     config = function()
       -- requires bat and the_silver_searcher
       vim.env.FZF_DEFAULT_COMMAND = 'ag --hidden --ignore-dir=".git" --ignore="*.swp" -g ""'
@@ -36,20 +54,21 @@ return {
         prompt = { 'fg', 'Function' },
         pointer = { 'fg', 'CursorColumn' }
       }
-
-      -- Exclude filenames from :Ag search
-      -- https://github.com/junegunn/fzf.vim/issues/346#issuecomment-655446292
+      -- Exclude filenames from :Ag search (https://github.com/junegunn/fzf.vim/issues/346#issuecomment-655446292)
       vim.cmd(
         [[command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)]])
+      -- BLinesWithPreview
       vim.cmd(
         [[command! -bang -nargs=* BLinesWithPreview call fzf#vim#grep(
     \   'rg --with-filename --column --line-number --no-heading --smart-case . '.fnameescape(expand('%:p')), 1,
     \   fzf#vim#with_preview({'options': '--layout reverse --query '.shellescape(<q-args>).' --with-nth=4.. --delimiter=":"'}))
       ]]
       )
-      -- Fuzzy finds
+
+      -- Fuzzy find key maps
       vim.keymap.set('n', '<leader>f', ':Files<Space>')
-      vim.keymap.set('n', '<leader>ff', ':Files<CR>')
+      vim.keymap.set('n', '<leader>ff', ':Files ' .. find_git_root() .. '<CR>', { silent = true })
+      vim.keymap.set('n', '<leader>f.', ':Files<CR>') -- search in pwd only
       vim.keymap.set('n', '<leader>fg', ':GFiles<CR>')
       vim.keymap.set('n', '<leader>fa', ':Ag<CR>')
       vim.keymap.set('n', '<leader>fb', ':Buffers<CR>')

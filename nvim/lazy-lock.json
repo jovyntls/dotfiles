@@ -25,5 +25,5 @@
   "vim-jsx-pretty": { "branch": "master", "commit": "6989f1663cc03d7da72b5ef1c03f87e6ddb70b41" },
   "vim-rhubarb": { "branch": "master", "commit": "ee69335de176d9325267b0fd2597a22901d927b1" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
-  "vimtex": { "branch": "master", "commit": "32d8541967115eddbb3a38961d51f987d5e28f0d" }
+  "vimtex": { "branch": "master", "commit": "f36e5856d85ff97aced152020ac92e3e3a10096b" }
 }
