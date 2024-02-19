@@ -13,6 +13,9 @@ return {
   {
     'junegunn/gv.vim',
     cmd = 'GV',
+    keys = {
+      { ',G', ':tab G<CR>', mode = { 'n', 'v' } },
+    },
     dependencies = { 'tpope/vim-fugitive' }
   }
 }

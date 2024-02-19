@@ -42,7 +42,7 @@ return {
     config = function()
       -- requires bat and the_silver_searcher
       vim.env.FZF_DEFAULT_COMMAND = 'ag --hidden --ignore-dir=".git" --ignore="*.swp" -g ""'
-      vim.env.BAT_THEME = 'Enki-Light' -- 'Catppuccin-mocha'
+      vim.env.BAT_THEME = 'soulburn'
       -- change preview pane size
       vim.g.fzf_preview_window = { 'right:60%' }
       vim.g.fzf_layout = { window = { width = 0.9, height = 0.8 } }
