@@ -44,7 +44,7 @@ return {
       dependencies = 'sirver/ultisnips',
     },
   },
-  config = function()
+  init = function()
     local cmp = require('cmp')
     local if_cmp_visible = function(action_to_do)
       return function(fallback)
@@ -54,9 +54,17 @@ return {
 
     cmp.setup({
       sources = {
+        {
+          name = 'ultisnips',
+          keyword_length = 2,
+          keyword_pattern = [[\\\?\k\+]]
+        },
         { name = 'nvim_lsp' },
-        { name = 'ultisnips' },
         { name = 'nvim_lua' },
+      },
+      completion = {
+        keyword_length = 2,
+        keyword_pattern = [[\d\@!\k\k*]],
       },
       window = {
         -- [CmpPMenu] and [CmpCursorLine] defined in ui.lua
