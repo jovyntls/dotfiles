@@ -20,6 +20,8 @@ floating:
   - com.apple.finder
   - com.apple.FontBook
 
+focus-follows-mouse: false
+
 # shortcuts
 shrink-main:
   mod: mod1
