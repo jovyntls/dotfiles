@@ -76,15 +76,7 @@ return {
     end
   },
 
-  {
-    "tversteeg/registers.nvim",
-    name = "registers",
-    keys = {
-      { "\"",    mode = { "n", "v" } },
-      { "<C-R>", mode = "i" }
-    },
-    cmd = "Registers",
-  },
+  { 'junegunn/vim-peekaboo' },
 
   {
     'folke/trouble.nvim',
