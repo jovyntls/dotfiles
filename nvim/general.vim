@@ -126,6 +126,7 @@ nnoremap <leader>G :let @+ = expand("%")<CR>
 "Buffer navigation
 nnoremap [b :bprev<CR>
 nnoremap ]b :bnext<CR>
+nnoremap <leader><tab> <C-^>
 
 " SELECTION -----------------------------------------
 "Swap v and V 
