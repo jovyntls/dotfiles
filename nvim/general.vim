@@ -10,8 +10,8 @@ set mouse=
 " Terminal settings for nvim
 autocmd TermOpen * setlocal nonumber norelativenumber
 autocmd BufWinEnter,WinEnter term://* startinsert
-nnoremap <leader>vt :50 vsplit term://zsh<CR>
-nnoremap <leader>ht :15 split term://zsh<CR>
+nnoremap <leader>tv :50 vsplit term://zsh<CR>
+nnoremap <leader>th :15 split term://zsh<CR>
 
 " </NEOVIM-ONLY> -----------------------------------------------------------
 
@@ -49,9 +49,9 @@ augroup markdownTexGroup
     " spellcheck
     autocmd FileType markdown,tex,text setlocal spell
     autocmd BufRead,BufNewFile *.mdx setlocal spell
-    " misc configs
+    " line breaks
     autocmd FileType markdown,tex,text setlocal wrap
-    autocmd FileType markdown setlocal linebreak
+    autocmd FileType markdown,tex setlocal linebreak
 augroup END
 
 " detect ANTLR
