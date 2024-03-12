@@ -176,7 +176,7 @@ noremap <leader>d "_d
 noremap <leader>D "_d$
 noremap <leader>c "_c
 noremap <leader>C "_c$
-vnoremap <leader>p "_dp
+vnoremap <leader>p "_dP
 
 "Toggle fold with zf
 nnoremap zf za
