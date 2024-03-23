@@ -44,14 +44,16 @@ set spelllang=en_gb
 set nospell             " stop spell turning on for everything
 
 " handle markdown and tex files differently
-augroup markdownTexGroup
-    autocmd!
-    " spellcheck
-    autocmd FileType markdown,tex,text setlocal spell
-    autocmd BufRead,BufNewFile *.mdx setlocal spell
-    " line breaks
-    autocmd FileType markdown,tex,text setlocal wrap
-    autocmd FileType markdown,tex setlocal linebreak
+augroup textEditingGroup
+  autocmd!
+  autocmd FileType markdown,tex,text setlocal wrap
+  autocmd FileType markdown,tex setlocal linebreak
+augroup END
+
+augroup spellcheckGroup
+  autocmd!
+  autocmd FileType markdown,tex,text,gitcommit setlocal spell
+  autocmd BufRead,BufNewFile *.mdx setlocal spell
 augroup END
 
 " detect ANTLR
