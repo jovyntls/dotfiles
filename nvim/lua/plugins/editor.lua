@@ -33,6 +33,14 @@ return {
       vim.g.NERDTreeMapOpenVSplit = 'v'
       vim.g.NERDTreeMapPreviewVSplit = 'V'
       vim.g.NERDTreeMapPreview = 'O'
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'nerdtree',
+        group = vim.api.nvim_create_augroup('NerdtreeConfig', { clear = true }),
+        callback = function(ev)
+          vim.keymap.set('n', '<leader>b', '<cmd>NERDTreeToggle<CR>', { buffer = true })
+        end,
+      })
     end
   },
 
