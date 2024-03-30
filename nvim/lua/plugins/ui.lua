@@ -1,6 +1,18 @@
-local recolour = function(highlight_group, fg, opts)
-  opts = opts or {}       -- default value
+local set_fg = function(highlight_group, fg, opts)
+  opts = opts or {} -- default value
   opts.ctermfg = fg
+  opts.fg = fg
+  vim.api.nvim_set_hl(0, highlight_group, opts)
+end
+
+local recolour = function(highlight_group, opts)
+  opts = opts or {} -- default value
+  if opts.fg then
+    opts.ctermfg = opts.fg
+  end
+  if opts.bg then
+    opts.ctermbg = opts.bg
+  end
   vim.api.nvim_set_hl(0, highlight_group, opts)
 end
 
@@ -31,48 +43,48 @@ return {
       vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
 
       -- define colours for nvim-cmp
-      recolour("CmpPmenu", 'None', { ctermbg = clr.darkerbg })
-      recolour("CmpCursorLine", 'None', { ctermbg = clr.lighterbg })
-      recolour('NormalFloat', 'None', { ctermbg = clr.darkerbg }) -- for diagnostics float
+      recolour("CmpPmenu", { ctermbg = clr.darkerbg })
+      recolour("CmpCursorLine", { ctermbg = clr.lighterbg })
+      recolour('NormalFloat', { ctermbg = clr.darkerbg }) -- for diagnostics float
 
-      recolour("CmpItemAbbrDeprecated", clr.mutegray, { strikethrough = true })
-      recolour("CmpItemMenu", clr.mutegray, { italic = true })
-      recolour("CmpItemAbbrMatch", clr.deepblue, { bold = true })
-      vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpItemAbbrMatch" })
+      set_fg("CmpItemAbbrDeprecated", clr.mutegray, { strikethrough = true })
+      set_fg("CmpItemMenu", clr.mutegray, { italic = true })
+      set_fg("CmpItemAbbrMatch", clr.deepblue, { bold = true })
+      recolour("CmpItemAbbrMatchFuzzy", { link = "CmpItemAbbrMatch" })
 
-      recolour("CmpItemKindFunction", clr.neutralblue)
-      recolour("CmpItemKindMethod", clr.neutralblue)
+      set_fg("CmpItemKindFunction", clr.neutralblue)
+      set_fg("CmpItemKindMethod", clr.neutralblue)
 
-      recolour("CmpItemKindConstant", clr.neutralgreen, { bold = true })
-      recolour("CmpItemKindVariable", clr.neutralgreen)
-      recolour("CmpItemKindText", clr.neutralgreen)
+      set_fg("CmpItemKindConstant", clr.neutralgreen, { bold = true })
+      set_fg("CmpItemKindVariable", clr.neutralgreen)
+      set_fg("CmpItemKindText", clr.neutralgreen)
 
-      recolour("CmpItemKindConstructor", clr.orangeyellow, { italic = true })
-      recolour("CmpItemKindClass", clr.orangeyellow)
-      recolour("CmpItemKindInterface", clr.orangeyellow)
-      recolour("CmpItemKindStruct", clr.orangeyellow)
+      set_fg("CmpItemKindConstructor", clr.orangeyellow, { italic = true })
+      set_fg("CmpItemKindClass", clr.orangeyellow)
+      set_fg("CmpItemKindInterface", clr.orangeyellow)
+      set_fg("CmpItemKindStruct", clr.orangeyellow)
 
-      recolour("CmpItemKindField", clr.orangeyellow)
-      recolour("CmpItemKindProperty", clr.orangeyellow)
+      set_fg("CmpItemKindField", clr.orangeyellow)
+      set_fg("CmpItemKindProperty", clr.orangeyellow)
 
-      recolour("CmpItemKindModule", clr.orange)
+      set_fg("CmpItemKindModule", clr.orange)
 
-      recolour("CmpItemKindOperator", clr.yellow)
-      recolour("CmpItemKindTypeParameter", clr.yellow)
-      recolour("CmpItemKindEnum", clr.yellow)
-      vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { link = "CmpItemKindEnum" })
+      set_fg("CmpItemKindOperator", clr.yellow)
+      set_fg("CmpItemKindTypeParameter", clr.yellow)
+      set_fg("CmpItemKindEnum", clr.yellow)
+      recolour("CmpItemKindEnumMember", { link = "CmpItemKindEnum" })
 
-      recolour("CmpItemKindKeyword", clr.hotpink)
+      set_fg("CmpItemKindKeyword", clr.hotpink)
 
-      recolour("CmpItemKindFile", clr.lilac)
-      recolour("CmpItemKindFolder", clr.lilac)
-      recolour("CmpItemKindSnippet", clr.lilac)
+      set_fg("CmpItemKindFile", clr.lilac)
+      set_fg("CmpItemKindFolder", clr.lilac)
+      set_fg("CmpItemKindSnippet", clr.lilac)
 
-      recolour("CmpItemKindEvent", clr.mutegray)
-      recolour("CmpItemKindReference", clr.mutegray)
-      recolour("CmpItemKindValue", clr.mutegray)
-      recolour("CmpItemKindUnit", clr.mutegray)
-      recolour("CmpItemKindColor", clr.mutegray)
+      set_fg("CmpItemKindEvent", clr.mutegray)
+      set_fg("CmpItemKindReference", clr.mutegray)
+      set_fg("CmpItemKindValue", clr.mutegray)
+      set_fg("CmpItemKindUnit", clr.mutegray)
+      set_fg("CmpItemKindColor", clr.mutegray)
     end
   },
 
@@ -99,6 +111,28 @@ return {
         },
         colorscheme = 'seoul256'
       }
+    end
+  },
+
+  {
+    'echasnovski/mini.hipatterns',
+    config = function()
+      local hipatterns = require('mini.hipatterns')
+      hipatterns.setup({
+        highlighters = {
+          -- hex_color       = hipatterns.gen_highlighter.hex_color(),
+          todo            = { pattern = { '%f[%w]()TODO()%f[%W]', '%f[%w]()todo()%f[%W]' }, group = 'MiniHipatternsTodo' },
+          fixme           = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+          hack            = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+          note            = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+          merge_conflicts = { pattern = { '^()<<<<<<<()%s%w', '^()=======()%s%w', '^()>>>>>>>()%s%w' }, group = 'MiniHipatternsNote' },
+        },
+      })
+
+      recolour('MiniHipatternsTodo', { fg = 'white', bg = clr.hotpink, bold=true, italic=true })
+      recolour('MiniHipatternsHack', { fg = clr.darkerbg, bg = clr.orangeyellow, bold=true })
+      recolour('MiniHipatternsFixme', { fg = clr.darkerbg, bg = clr.orange, bold=true })
+      recolour('MiniHipatternsNote', { fg = clr.darkerbg, bg = clr.neutralblue, bold=true })
     end
   }
 }
