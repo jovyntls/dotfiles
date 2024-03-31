@@ -1,3 +1,13 @@
+open_tex() {
+  tex_files=$(ls | grep "\.tex$" | wc -l)
+  if (( tex_files > 3 )); then
+    echo "Multiple .tex files found:"
+    ls | grep "\.tex$"
+  else
+    nvim -O *.tex
+  fi
+}
+
 # ALIASES --------------------------------------------------------
 
 # general
@@ -7,7 +17,7 @@ alias fvf='nvim -c :Files'
 alias faf='nvim -c :Ag'
 alias vi='nvim'
 alias vig='nvim +G +only'
-alias vit='nvim -O *.tex'
+alias vit=open_tex
 alias kssh="kitty +kitten ssh"
 
 # for development
