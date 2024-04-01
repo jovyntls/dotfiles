@@ -58,6 +58,7 @@ augroup END
 
 " detect ANTLR
 augroup detectANTLR
+  autocmd!
   autocmd BufRead,BufNewFile *.g4 set filetype=antlr4
 augroup END
 

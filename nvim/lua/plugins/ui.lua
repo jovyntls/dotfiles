@@ -1,17 +1,20 @@
+local rgb_map = require('plugins.colormap')
+
 local set_fg = function(highlight_group, fg, opts)
   opts = opts or {} -- default value
   opts.ctermfg = fg
-  opts.fg = fg
+  opts.fg = rgb_map[fg]
   vim.api.nvim_set_hl(0, highlight_group, opts)
 end
 
-local recolour = function(highlight_group, opts)
-  opts = opts or {} -- default value
+local set_hl = function(highlight_group, opts)
   if opts.fg then
     opts.ctermfg = opts.fg
+    opts.fg = rgb_map[opts.fg] or opts.fg
   end
   if opts.bg then
     opts.ctermbg = opts.bg
+    opts.bg = rgb_map[opts.bg] or opts.bg
   end
   vim.api.nvim_set_hl(0, highlight_group, opts)
 end
@@ -36,21 +39,22 @@ return {
     lazy = false,
     priority = 1000,
     init = function()
-      vim.g.seoul256_background = 235
+      vim.g.seoul256_background = 234
+      vim.opt.termguicolors = true
       vim.cmd.colorscheme('seoul256')
 
       -- fix comment overriding todo highlight
       vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
 
       -- define colours for nvim-cmp
-      recolour("CmpPmenu", { ctermbg = clr.darkerbg })
-      recolour("CmpCursorLine", { ctermbg = clr.lighterbg })
-      recolour('NormalFloat', { ctermbg = clr.darkerbg }) -- for diagnostics float
+      set_hl("CmpPmenu", { bg = clr.darkerbg })
+      set_hl("CmpCursorLine", { bg = clr.lighterbg })
+      set_hl('NormalFloat', { bg = clr.darkerbg }) -- for diagnostics float
 
       set_fg("CmpItemAbbrDeprecated", clr.mutegray, { strikethrough = true })
       set_fg("CmpItemMenu", clr.mutegray, { italic = true })
       set_fg("CmpItemAbbrMatch", clr.deepblue, { bold = true })
-      recolour("CmpItemAbbrMatchFuzzy", { link = "CmpItemAbbrMatch" })
+      set_hl("CmpItemAbbrMatchFuzzy", { link = "CmpItemAbbrMatch" })
 
       set_fg("CmpItemKindFunction", clr.neutralblue)
       set_fg("CmpItemKindMethod", clr.neutralblue)
@@ -72,7 +76,7 @@ return {
       set_fg("CmpItemKindOperator", clr.yellow)
       set_fg("CmpItemKindTypeParameter", clr.yellow)
       set_fg("CmpItemKindEnum", clr.yellow)
-      recolour("CmpItemKindEnumMember", { link = "CmpItemKindEnum" })
+      set_hl("CmpItemKindEnumMember", { link = "CmpItemKindEnum" })
 
       set_fg("CmpItemKindKeyword", clr.hotpink)
 
@@ -120,19 +124,20 @@ return {
       local hipatterns = require('mini.hipatterns')
       hipatterns.setup({
         highlighters = {
-          -- hex_color       = hipatterns.gen_highlighter.hex_color(),
+          hex_color       = hipatterns.gen_highlighter.hex_color(),
           todo            = { pattern = { '%f[%w]()TODO()%f[%W]', '%f[%w]()todo()%f[%W]' }, group = 'MiniHipatternsTodo' },
           fixme           = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
           hack            = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-          note            = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-          merge_conflicts = { pattern = { '^()<<<<<<<()%s%w', '^()=======()%s%w', '^()>>>>>>>()%s%w' }, group = 'MiniHipatternsNote' },
+          note            = { pattern = '%f[%w]()XXX()%f[%W]', group = 'MiniHipatternsNote' },
+          merge_conflicts = { pattern = { '^<<<<<<<%s.+', '^=======$', '^()>>>>>>>%s.+' }, group = 'MiniHipatternsStandout' },
         },
       })
 
-      recolour('MiniHipatternsTodo', { fg = 'white', bg = clr.hotpink, bold=true, italic=true })
-      recolour('MiniHipatternsHack', { fg = clr.darkerbg, bg = clr.orangeyellow, bold=true })
-      recolour('MiniHipatternsFixme', { fg = clr.darkerbg, bg = clr.orange, bold=true })
-      recolour('MiniHipatternsNote', { fg = clr.darkerbg, bg = clr.neutralblue, bold=true })
+      set_hl('MiniHipatternsTodo', { fg = 'white', bg = clr.hotpink, bold=true, italic=true })
+      set_hl('MiniHipatternsHack', { fg = clr.darkerbg, bg = clr.orangeyellow, bold=true })
+      set_hl('MiniHipatternsFixme', { fg = clr.darkerbg, bg = clr.orange, bold=true })
+      set_hl('MiniHipatternsNote', { fg = clr.darkerbg, bg = clr.neutralblue, bold=true })
+      set_hl('MiniHipatternsStandout', { fg = clr.darkerbg, bg = 'white', bold=true })
     end
   }
 }
