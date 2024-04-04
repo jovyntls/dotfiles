@@ -32,4 +32,14 @@ return {
   { 'pangloss/vim-javascript',  ft = js_filetypes },
   { 'MaxMEllon/vim-jsx-pretty', ft = js_filetypes },
 
+  {
+    'instant-markdown/vim-instant-markdown',
+    ft = { 'markdown' },
+    config = function()
+      -- manually use `:InstantMarkdownPreview` and `:InstantMarkdownStop` 
+      vim.g.instant_markdown_autostart = 0
+      vim.g.instant_markdown_slow = 1
+    end
+  }
+
 }
