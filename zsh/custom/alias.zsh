@@ -19,6 +19,7 @@ alias vi='nvim'
 alias vig='nvim +G +only'
 alias vit=open_tex
 alias kssh="kitty +kitten ssh"
+alias cpwd="echo -n `pwd` | pbcopy"
 
 # for development
 alias gcamend="git commit --amend --no-edit"
