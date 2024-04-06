@@ -1,5 +1,16 @@
 return {
-  'tpope/vim-fugitive',
+  {
+    'tpope/vim-fugitive',
+    init = function()
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'fugitive',
+        group = vim.api.nvim_create_augroup('FugitiveGroup', { clear = true }),
+        callback = function(ev)
+          vim.keymap.set('n', ',gp', '<cmd>:Git!push<CR>', { buffer = true })
+        end,
+      })
+    end
+  },
 
   {
     'tpope/vim-rhubarb', -- allow :GBrowse to open github.com
