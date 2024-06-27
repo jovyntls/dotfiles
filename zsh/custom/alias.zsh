@@ -40,16 +40,8 @@ alias python="python3"
 alias dt="cd ~/Desktop"
 alias dl="cd ~/Downloads"
 alias cdc="cd ~/Desktop/code-stuff && tree -L 1"
-alias cdcs="cd ~/Desktop/school/cheatsheets"
+alias cdcs="cd ~/Desktop/my-documents/school/NUS/cheatsheets"
 alias ref="cd ~/Desktop/code-stuff/references && tree -L 1"
 
-# NUS 
-alias checkstyle="java -jar ~/Documents/cs2030s/bin/checkstyle.jar -c ~/Documents/cs2030s/bin/cs2030_checks.xml *.java"
-alias sunfire="ssh jovyntls@sunfire.comp.nus.edu.sg"
-alias ffmplay="/Applications/ffmpeg-4.3-macos64-static/bin/ffplay ~/Desktop/ffmpeg-recording*.mp4"
-# semesterly aliases
-alias mbsd="markbind serve -d"
-alias wk="cd ~/Desktop/work"
-alias fyp="cd ~/Desktop/work/fyp && tree -L 1"
 alias ap="cd ~/Desktop/not\ work/aphrodite-monorepo"
 
