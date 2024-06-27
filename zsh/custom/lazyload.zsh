@@ -1,13 +1,31 @@
-# LAZY LOAD ALIASES ---------------------
-# commands that depend on each lazy-loaded config
+# LAZY LOAD ALIASES ---------------------------
 
+lazy_node_aliases=('nvm' 'npm' 'node')
 lazy_conda_aliases=('python' 'conda' 'py' 'python3')
 
-# ---------------------------------------
+# NODE ----------------------------------------
 
-# eval "$(rbenv init -)"
+load_node() {
+  for lazy_node_alias in $lazy_node_aliases
+  do
+    unalias $lazy_node_alias
+  done
 
-# conda
+  # >>> initialize node >>>
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  # <<< initialize node <<<
+
+  unfunction load_node
+}
+
+for lazy_node_alias in $lazy_node_aliases
+do
+  alias $lazy_node_alias="load_node && $lazy_node_alias"
+done
+
+# CONDA ---------------------------------------
 
 load_conda() {
   for lazy_conda_alias in $lazy_conda_aliases

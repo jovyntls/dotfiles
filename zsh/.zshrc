@@ -1,11 +1,7 @@
 # zmodload zsh/zprof
 
+# utils
 export PATH="/opt/homebrew/bin:$PATH"
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# crontab uses this to determine which editor
 export EDITOR=/usr/bin/vim
 
 # for nvm lazy load
@@ -13,11 +9,12 @@ export NVM_LAZY_LOAD=true
 # speed up start time
 DISABLE_AUTO_UPDATE=true
 
+
+# for zsh/oh-my-zsh
+# plugins=(git zsh-nvm)
+plugins=(git)
 ZSH_THEME="nicemh"
-
-# PLUGINS
-plugins=(git zsh-nvm)
-
+export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/alias.zsh
 
