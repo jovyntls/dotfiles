@@ -1,3 +1,5 @@
+vim.g.python3_host_prog = '~/.config/nvim/.venv/bin/python3'
+
 -- General editing utilities and .vimrc
 local vimrc = vim.fn.stdpath("config") .. "/general.vim"
 vim.cmd.source(vimrc)
