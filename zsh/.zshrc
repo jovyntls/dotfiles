@@ -1,12 +1,12 @@
 # zmodload zsh/zprof
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # crontab uses this to determine which editor
-export EDITOR=/usr/local/bin/vim
+export EDITOR=/usr/bin/vim
 
 # for nvm lazy load
 export NVM_LAZY_LOAD=true
@@ -22,13 +22,7 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/alias.zsh
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# exams record function
-function ffmrecord() {
-  /Applications/ffmpeg-4.3-macos64-static/bin/ffmpeg -f avfoundation -r 1 -probesize 20M -threads 1 -i "1:" -vcodec libx264 -b:v 128k -s hd720 ~/Desktop/ffmpeg-recording-$(timestamp).mp4
-  print "Recording stopped at "$(timestamp)
-}
+source <(fzf --zsh)
 
 # utils
 function cl() {
@@ -52,6 +46,5 @@ function tre() {
   tree -L $1 $2 -I node_modules
   echo '\n(node_modules ignored)'
 }
-
 
 # zprof
