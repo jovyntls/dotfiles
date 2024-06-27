@@ -88,11 +88,11 @@ return {
 
   {
     'folke/trouble.nvim',
-    opts = { icons = false },
+    opts = { focus=true },
     keys = {
-      { '<leader>gl', '<cmd>TroubleToggle document_diagnostics<cr>' },
-      { '<leader>gL', '<cmd>TroubleToggle workspace_diagnostics<cr>' },
-      { '<leader>gr', '<cmd>TroubleToggle lsp_references<cr>' },
+      { '<leader>gl', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>' },
+      { '<leader>gL', '<cmd>Trouble diagnostics toggle<cr>' },
+      { '<leader>gr', '<cmd>Trouble lsp_references toggle<cr>' },
     },
   }
 }
