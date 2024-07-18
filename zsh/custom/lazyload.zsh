@@ -33,7 +33,7 @@ load_conda() {
     unalias $lazy_conda_alias
   done
 
-  __conda_prefix="/Users/jovyntan/opt/anaconda3" # conda location
+  __conda_prefix="/opt/homebrew/anaconda3" # conda location
 
   # >>> conda initialize >>>
   # !! Contents within this block were added by 'conda init' !!
