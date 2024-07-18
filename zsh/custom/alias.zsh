@@ -19,7 +19,7 @@ alias vi='nvim'
 alias vig='nvim +G +only'
 alias vit=open_tex
 alias kssh="kitty +kitten ssh"
-alias cpwd="echo -n `pwd` | pbcopy"
+alias cpwd="echo -n \`pwd\` | pbcopy"
 
 # for development
 alias gcamend="git commit --amend --no-edit"
@@ -40,8 +40,6 @@ alias python="python3"
 alias dt="cd ~/Desktop"
 alias dl="cd ~/Downloads"
 alias cdc="cd ~/Desktop/code-stuff && tree -L 1"
-alias cdcs="cd ~/Desktop/my-documents/school/NUS/cheatsheets"
 alias ref="cd ~/Desktop/code-stuff/references && tree -L 1"
-
 alias ap="cd ~/Desktop/not\ work/aphrodite-monorepo"
 
