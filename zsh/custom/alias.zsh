@@ -10,7 +10,7 @@ open_tex() {
 
 # ALIASES --------------------------------------------------------
 
-# general
+# utilities
 alias vimrc="cd ~/.config/nvim && nvim ~/.config/nvim/init.lua"
 alias zshrc="cd $ZSH_CUSTOM && nvim ~/.zshrc"
 alias fvf='nvim -c :Files'
@@ -20,6 +20,7 @@ alias vig='nvim +G +only'
 alias vit=open_tex
 alias kssh="kitty +kitten ssh"
 alias cpwd="echo -n \`pwd\` | pbcopy"
+alias mvo="cd ~/do-not-move/utility-scripts/obsidian-mover && node main.js && cd - > /dev/null"
 
 # for development
 alias gcamend="git commit --amend --no-edit"
