@@ -1,0 +1,1 @@
+59 11,23 * * * bash ~/do-not-move/utility-scripts/obsidian-commit-daily.sh
